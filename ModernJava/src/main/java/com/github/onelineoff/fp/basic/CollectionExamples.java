@@ -3,6 +3,7 @@ package com.github.onelineoff.fp.basic;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class CollectionExamples {
 
@@ -54,6 +55,10 @@ public class CollectionExamples {
 		return getStringFromSb(sb);
 	}
 		
+	public String getListEntriesUsingStreams(List<String> list) {
+		return list.stream().map(name -> name).collect(Collectors.joining(SEPARATOR));
+	}
+	
 	/** Format a single line from the argument.
 	 *  This can be used by different methods to ensure common results.
 	 * @param str The input string.

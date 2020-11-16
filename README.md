@@ -22,3 +22,10 @@ This was a major release.  Some of the main features are:
 * Miscellaneous Core API Improvements
 
 ## Functional Programming
+### Basic examples
+
+The `com.github.onelineoff.fp.basic` package contains simple examples to illustrate the basic functionality.  This generally involves implementing some basic task using Java 7 code, then rewriting in one or more steps using the Java 8 functional programming constructs, then having unit tests call all of the various methods, and verify that the output is identical.  
+
+
+
+This allows the reader to see how to proceed from an imperative to functional style of coding in Java, with some intermediate steps for pedagogic purposes.

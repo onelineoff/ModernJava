@@ -16,9 +16,11 @@ public class CollectionExamplesTest {
 		
 		String output2 = examples.getListEntriesFpVersion1(examples.stringTestList);		
 		String output3 = examples.getListEntriesFpConciseVersion(examples.stringTestList);
+		String output4 = examples.getListEntriesUsingStreams(examples.stringTestList);
 		
 		Assert.assertEquals(output, output2);
 		Assert.assertEquals(output, output3);
+		Assert.assertEquals(output, output4);
 		
 	}
 }
