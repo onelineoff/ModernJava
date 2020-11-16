@@ -9,6 +9,11 @@ public class CollectionExamples {
 	protected List<String> stringTestList = Arrays.asList("e1", "e4", "e2", "e3", "e5");
 	protected String SEPARATOR = "-";
 	
+	/** Convert a list of strings into a string, using Java 7 style iterator.
+	 * 
+	 * @param list The list of strings to be combined.
+	 * @return The concatenated string.
+	 */
 	public String getListEntriesOldStyle(List<String> list) {
 		StringBuilder sb = new StringBuilder();
 		for (String str : list) {
@@ -19,6 +24,11 @@ public class CollectionExamples {
 		return getStringFromSb(sb);
 	}
 	
+	/** Verbose FP version of iterating through a list.
+	 * 
+	 * @param list The list of strings to be combined.
+	 * @return The concatenated string.
+	 */
 	public String getListEntriesFpVersion1(List<String> list) {
 		StringBuilder sb = new StringBuilder();
 		
@@ -32,17 +42,32 @@ public class CollectionExamples {
 		return getStringFromSb(sb);
 	}
 	
-	public String getListEntriesFpRealVersion(List<String> list) {
+	/** Concise FP version of iterating through a list.
+	 * 
+	 * @param list The list of strings to be combined.
+	 * @return The concatenated string.
+	 */	
+	public String getListEntriesFpConciseVersion(List<String> list) {
 		StringBuilder sb = new StringBuilder();
 		
 		list.forEach((str) -> sb.append(getLine(str)));
 		return getStringFromSb(sb);
 	}
 		
+	/** Format a single line from the argument.
+	 *  This can be used by different methods to ensure common results.
+	 * @param str The input string.
+	 * @return The formatted string.
+	 */
 	public String getLine(String str) {
 		return str + SEPARATOR;
 	}
 	
+	/** Process the input, and generate a string.
+	 * 
+	 * @param sb The input data.
+	 * @return A string from the input data, with the final separator removed.
+	 */
 	public String getStringFromSb(StringBuilder sb) {
 		String retStr = sb.toString();
 		if (retStr.endsWith(SEPARATOR))
