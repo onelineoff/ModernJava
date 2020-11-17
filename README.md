@@ -29,3 +29,10 @@ The `com.github.onelineoff.fp.basic` package contains simple examples to illustr
 
 
 This allows the reader to see how to proceed from an imperative to functional style of coding in Java, with some intermediate steps for pedagogic purposes.
+
+
+
+# TODO
+
+1. Add Spring for the usual reasons.
+2. What are best practices for stream() versus parallelStream()?  Research and implement using Spring.
