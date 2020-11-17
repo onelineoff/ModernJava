@@ -1,9 +1,13 @@
 package com.github.onelineoff.fp.basic;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
+import com.github.onelineoff.fp.util.LoadUtils;
 
 public class CollectionExamples {
 
@@ -79,5 +83,17 @@ public class CollectionExamples {
 			retStr = retStr.substring(0, retStr.length() - SEPARATOR.length());
 		
 		return retStr;
+	}
+	
+	public List<Integer> getPrimes(int max) {
+		List<Integer> inputList = new ArrayList<>();
+		for (int i=0; i<=max; i++) {
+			inputList.add(i);
+		}
+		
+		LoadUtils utils = new LoadUtils();
+		Predicate<Integer> isPrime = utils::isPrime;
+		List<Integer> retList = inputList.stream().filter(isPrime).collect(Collectors.toList());
+		return retList;
 	}
 }
