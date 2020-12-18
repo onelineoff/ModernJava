@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 import com.github.onelineoff.fp.util.LoadUtils;
 
-public class CollectionExamples {
+public class StringConcat {
 
 	protected List<String> stringTestList = Arrays.asList("e1", "e4", "e2", "e3", "e5");
 	protected String SEPARATOR = "-";

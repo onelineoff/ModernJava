@@ -1,43 +1,34 @@
 package com.github.onelineoff.fp.basic;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class LambdaExamples {
 
-	/** Java 7 implementation of rot13 transform.
-	 * 
-	 * @param input The intput string.
-	 * @return The transformed string.
-	 */
-	public String rot13(String input) {
-		StringBuilder sb = new StringBuilder();
-		for (int i=0; i<input.length(); i++) {
-			char c = input.charAt(i);
-			
-			if (Character.isLowerCase(c)) {
-				c = rot13(c, 'a');
+	public List<StringIntPair> countWordsOldStyle(List<String> inputList) {
+
+		for (String input : inputList) {
+			input = input.trim();
+			String[] words = input.split("\\s");
+			for (String word : words) {
+				if (word.length() == 0)
+					continue;
+				
+				word = word.toLowerCase();
+				StringIntPair pair = StringIntPair.getByKey(word);
+				pair.incrementValue();
 			}
-			else if (Character.isUpperCase(c)) {
-				c = rot13(c, 'A');
-			}
-			sb.append(c);
 		}
 		
-		return sb.toString();
+		List<StringIntPair> countList = StringIntPair.getList();
+		Collections.sort(countList);
+		return countList;
 	}
 	
-//	public String lambdaRot13(String input) {
-//		Function<String, String> rot13Lambda = input.chars()
-//	}
-	
-	public String transform(Function<String, String> transformFunction, String input) {
+	public List<StringIntPair> countWordsFp(List<String> inputList) {
+//		List<String> list = inputList.stream().flatMap(line -> new List(line.split("\\s"))).stream().map(String::toLowerCase).collect(Collectors.toList());
 		return null;
-	}
-	
-	protected char rot13(char c, char pivot) {
-		int index = c - pivot;
-		index = (index +13) % 26;
-		c = (char) (pivot + index);
-		return c;
 	}
 }

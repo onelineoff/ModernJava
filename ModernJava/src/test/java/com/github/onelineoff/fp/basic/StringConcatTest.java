@@ -5,14 +5,14 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class CollectionExamplesTest {
+public class StringConcatTest {
 
 	@Test
 	/** Compare imperative and fp ways of iterating through a list.
 	 *  
 	 */
 	public void testListIterators() {
-		CollectionExamples examples = new CollectionExamples();
+		StringConcat examples = new StringConcat();
 		String output = examples.getListEntriesOldStyle(examples.stringTestList);
 		System.out.println(output);
 		
@@ -28,7 +28,7 @@ public class CollectionExamplesTest {
 	
 	@Test
 	public void testGetPrimes() {
-		CollectionExamples examples = new CollectionExamples();
+		StringConcat examples = new StringConcat();
 		List<Integer> primes = examples.getPrimes(20);
 		Assert.assertEquals(10, primes.size());
 		Assert.assertTrue(primes.contains(0));

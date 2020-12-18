@@ -4,9 +4,6 @@ Modern Java
 # Purpose
 The purpose of this project is to learn and demonstrate new features in Java from version 8 on.
 
-# Create Project
-`mvn archetype:generate -DgroupId=onelineoff -DartifactId=ModernJava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
-
 # Java 8
 This was a major release.  Some of the main features are:
 * Functional Programming
