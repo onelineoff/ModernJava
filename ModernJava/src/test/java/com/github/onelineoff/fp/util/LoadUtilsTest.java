@@ -8,18 +8,20 @@ public class LoadUtilsTest {
 	@Test
 	public void testIsPrime() {
 		LoadUtils utils = new LoadUtils();
-		Assert.assertTrue(utils.isPrime(0));
-		Assert.assertTrue(utils.isPrime(1));
-		Assert.assertTrue(utils.isPrime(2));
-		Assert.assertTrue(utils.isPrime(3));
-		Assert.assertFalse(utils.isPrime(4));
-		Assert.assertTrue(utils.isPrime(5));
-		Assert.assertTrue(utils.isPrime(13));
-		Assert.assertTrue(utils.isPrime(37));
-		Assert.assertTrue(utils.isPrime(97));
-		Assert.assertTrue(utils.isPrime(359));
-		Assert.assertFalse(utils.isPrime(8192));
-		Assert.assertFalse(utils.isPrime(363));
-		Assert.assertFalse(utils.isPrime(729));
+		Assert.assertTrue(utils.isPrime(0l));
+		Assert.assertTrue(utils.isPrime(1l));
+		Assert.assertTrue(utils.isPrime(2l));
+		Assert.assertTrue(utils.isPrime(3l));		
+		Assert.assertTrue(utils.isPrime(5l));
+		Assert.assertTrue(utils.isPrime(13l));
+		Assert.assertTrue(utils.isPrime(37l));
+		Assert.assertTrue(utils.isPrime(97l));
+		Assert.assertTrue(utils.isPrime(359l));
+		
+		Assert.assertFalse(utils.isPrime(4l));	
+		Assert.assertFalse(utils.isPrime(361l));
+		Assert.assertFalse(utils.isPrime(8192l));
+		Assert.assertFalse(utils.isPrime(363l));
+		Assert.assertFalse(utils.isPrime(729l));
 	}
 }

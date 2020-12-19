@@ -10,24 +10,24 @@ public class LoadUtils implements Utils {
 	 * @return True if the parameter is a prime number, otherwise false.
 	 */
 	@Override
-	public boolean isPrime(Integer val) {
+	public boolean isPrime(Long val) {
 		boolean retVal = true;
-
+		
 		val = Math.abs(val);
 		if (val < 4) {
 			retVal = true;
 		}
 		else {
-			int max = val / 2;
-			for (int i=2; i<val; i++) {
-				for (int j=i; j<=max; j++) {
+			long max = val / 2;
+			for (long i=2; i<val; i++) {
+				for (long j=i; j<=max; j++) {
 					if (i * j == val) {
 						retVal = false;
+						break;
 					}
 				}
 			}			
-		}
-		
+		}	
 		return retVal;
 	}
 }

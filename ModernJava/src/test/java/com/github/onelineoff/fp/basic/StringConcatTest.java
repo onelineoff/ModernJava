@@ -1,7 +1,5 @@
 package com.github.onelineoff.fp.basic;
 
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,13 +10,13 @@ public class StringConcatTest {
 	 *  
 	 */
 	public void testListIterators() {
-		StringConcat examples = new StringConcat();
-		String output = examples.getListEntriesOldStyle(examples.stringTestList);
+		StringConcat concat = new StringConcat();
+		String output = concat.getListEntriesOldStyle(concat.stringTestList);
 		System.out.println(output);
 		
-		String output2 = examples.getListEntriesFpVersion1(examples.stringTestList);		
-		String output3 = examples.getListEntriesFpConciseVersion(examples.stringTestList);
-		String output4 = examples.getListEntriesUsingStreams(examples.stringTestList);
+		String output2 = concat.getListEntriesFpVersion1(concat.stringTestList);		
+		String output3 = concat.getListEntriesFpMoreConciseVersion(concat.stringTestList);
+		String output4 = concat.getListEntriesUsingStreams(concat.stringTestList);
 		
 		Assert.assertEquals(output, output2);
 		Assert.assertEquals(output, output3);
@@ -27,19 +25,26 @@ public class StringConcatTest {
 	}
 	
 	@Test
-	public void testGetPrimes() {
-		StringConcat examples = new StringConcat();
-		List<Integer> primes = examples.getPrimes(20);
-		Assert.assertEquals(10, primes.size());
-		Assert.assertTrue(primes.contains(0));
-		Assert.assertTrue(primes.contains(1));
-		Assert.assertTrue(primes.contains(2));
-		Assert.assertTrue(primes.contains(3));
-		Assert.assertTrue(primes.contains(5));
-		Assert.assertTrue(primes.contains(7));
-		Assert.assertTrue(primes.contains(11));
-		Assert.assertTrue(primes.contains(13));
-		Assert.assertTrue(primes.contains(17));
-		Assert.assertTrue(primes.contains(19));		
+	public void testGetLine() {
+		String input = "abcdefg";
+		String expected = "abcdefg" + StringConcat.SEPARATOR;
+		StringConcat concat = new StringConcat();
+		Assert.assertEquals(expected, concat.getLine(input));
+	}
+	
+	@Test
+	public void testGetLineFromSb() {
+		StringConcat concat = new StringConcat();
+		String input1 = "#jEiFHAL";
+		String input2 = "#jEiF" + StringConcat.SEPARATOR + "HAL";
+		String input3 = input2 + StringConcat.SEPARATOR;
+		StringBuilder sb = new StringBuilder(input1);
+		Assert.assertEquals(input1, concat.getStringFromSb(sb));
+		sb = new StringBuilder(input2);
+		Assert.assertEquals(input2, concat.getStringFromSb(sb));
+		sb = new StringBuilder(input3);
+		Assert.assertEquals(input2, concat.getStringFromSb(sb));
+		
+		
 	}
 }

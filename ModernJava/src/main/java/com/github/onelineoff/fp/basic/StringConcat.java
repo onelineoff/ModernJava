@@ -1,18 +1,19 @@
 package com.github.onelineoff.fp.basic;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import com.github.onelineoff.fp.util.LoadUtils;
-
+/** Various examples of string concatenation.
+ *  The idea is to take a list of a, b, c, d, e, and output: a-b-c-d-e
+ *  Start with the Java 7 version, and progressively simplify using Java 8 FP.
+ *
+ */
 public class StringConcat {
 
 	protected List<String> stringTestList = Arrays.asList("e1", "e4", "e2", "e3", "e5");
-	protected String SEPARATOR = "-";
+	protected static String SEPARATOR = "-";
 	
 	/** Convert a list of strings into a string, using Java 7 style iterator.
 	 * 
@@ -47,18 +48,25 @@ public class StringConcat {
 		return getStringFromSb(sb);
 	}
 	
-	/** Concise FP version of iterating through a list.
+	/** More concise FP version of iterating through a list.
 	 * 
 	 * @param list The list of strings to be combined.
 	 * @return The concatenated string.
 	 */	
-	public String getListEntriesFpConciseVersion(List<String> list) {
+	public String getListEntriesFpMoreConciseVersion(List<String> list) {
 		StringBuilder sb = new StringBuilder();
 		
 		list.forEach((str) -> sb.append(getLine(str)));
 		return getStringFromSb(sb);
 	}
 		
+	/** Simplest version using FP.
+	 *  Note that this is the only version that doesn't have to call getStringFromSb() 
+	 *  to strip the extraneous separator at the end of the string.
+	 * 
+	 * @param list The list of strings to be combined.
+	 * @return The concatenated string.
+	 */
 	public String getListEntriesUsingStreams(List<String> list) {
 		return list.stream().map(name -> name).collect(Collectors.joining(SEPARATOR));
 	}
@@ -85,15 +93,4 @@ public class StringConcat {
 		return retStr;
 	}
 	
-	public List<Integer> getPrimes(int max) {
-		List<Integer> inputList = new ArrayList<>();
-		for (int i=0; i<=max; i++) {
-			inputList.add(i);
-		}
-		
-		LoadUtils utils = new LoadUtils();
-		Predicate<Integer> isPrime = utils::isPrime;
-		List<Integer> retList = inputList.stream().filter(isPrime).collect(Collectors.toList());
-		return retList;
-	}
 }
