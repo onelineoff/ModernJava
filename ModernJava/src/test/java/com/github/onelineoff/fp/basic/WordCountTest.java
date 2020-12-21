@@ -11,12 +11,12 @@ import java.util.stream.Collectors;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class LambdaExamplesTest {
+public class WordCountTest {
 
 	@Test
 	public void testWordCount() throws Exception {
 		List<String> lines = getResource("book.txt");
-		LambdaExamples examples = new LambdaExamples();
+		WordCount examples = new WordCount();
 		List<StringIntPair> countList = examples.countWordsOldStyle(lines);
 		Assert.assertTrue(countList.size() > 10);
 		System.out.println("List size is " + countList.size());

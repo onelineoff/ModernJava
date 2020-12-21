@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class LambdaExamples {
+public class WordCount {
 
 	public List<StringIntPair> countWordsOldStyle(List<String> inputList) {
 
