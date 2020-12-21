@@ -12,6 +12,11 @@ import com.github.onelineoff.fp.util.LoadUtils;
  */
 public class Prime {
 	
+	/** Find the primes between 0 and the input parameter.
+	 * 
+	 * @param max The largest number to check.
+	 * @return A list of all the primes in the range being tested.
+	 */
 	public List<Long> getPrimesOldStyle(long max) {
 		LoadUtils utils = new LoadUtils();
 		List<Long> outputList = new ArrayList<>();
@@ -24,6 +29,14 @@ public class Prime {
 		return outputList;
 	}
 	
+	/** Find all the primes in the specified range.
+	 *  Use streaming functionality.
+	 * 
+	 * @param max The maximum number to be checked.
+	 * @param isParallel - Use parallel streams if true, otherwise false.
+	 * 
+	 * @return A list of all the primes in the range being tested.
+	 */
 	public List<Long> getPrimesAsLongStream(long max, boolean isParallel) {
 		LoadUtils utils = new LoadUtils();
 		LongPredicate isPrime = utils::isPrime; // Subtle difference between LongPredicate and Predicate<Long>
