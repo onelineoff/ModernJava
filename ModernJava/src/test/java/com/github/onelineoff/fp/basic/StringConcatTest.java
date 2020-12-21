@@ -25,6 +25,9 @@ public class StringConcatTest {
 	}
 	
 	@Test
+	/** Note that this test method is not necessary for the best FP implementation.
+	 * 
+	 */
 	public void testGetLine() {
 		String input = "abcdefg";
 		String expected = "abcdefg" + StringConcat.SEPARATOR;
@@ -33,6 +36,9 @@ public class StringConcatTest {
 	}
 	
 	@Test
+	/** Note that this test method is not necessary for the best FP implementation.
+	 * 
+	 */
 	public void testGetLineFromSb() {
 		StringConcat concat = new StringConcat();
 		String input1 = "#jEiFHAL";

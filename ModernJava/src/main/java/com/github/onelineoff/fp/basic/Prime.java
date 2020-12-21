@@ -8,7 +8,10 @@ import java.util.stream.LongStream;
 
 import com.github.onelineoff.fp.util.LoadUtils;
 
+/** Implement methods for determine if numbers are prime, using old-style and FP constructs.
+ */
 public class Prime {
+	
 	public List<Long> getPrimesOldStyle(long max) {
 		LoadUtils utils = new LoadUtils();
 		List<Long> outputList = new ArrayList<>();
@@ -23,7 +26,7 @@ public class Prime {
 	
 	public List<Long> getPrimesAsLongStream(long max, boolean isParallel) {
 		LoadUtils utils = new LoadUtils();
-		LongPredicate isPrime = utils::isPrime;
+		LongPredicate isPrime = utils::isPrime; // Subtle difference between LongPredicate and Predicate<Long>
 		LongStream ls = LongStream.rangeClosed(0,  max);
 		if (isParallel) {
 			ls = ls.parallel();

@@ -73,6 +73,8 @@ public class StringConcat {
 	
 	/** Format a single line from the argument.
 	 *  This can be used by different methods to ensure common results.
+	 *  Note that this method is not necessary for the simplest FP implementation.
+	 *  
 	 * @param str The input string.
 	 * @return The formatted string.
 	 */
@@ -81,6 +83,7 @@ public class StringConcat {
 	}
 	
 	/** Process the input, and generate a string.
+	 * Note that this method is not necessary for the simplest FP implementation.
 	 * 
 	 * @param sb The input data.
 	 * @return A string from the input data, with the final separator removed.

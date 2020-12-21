@@ -24,7 +24,17 @@ public class PrimeTest {
 		Assert.assertTrue(primeList.contains(17l));
 		Assert.assertTrue(primeList.contains(19l));		
 		
+		Assert.assertFalse(primeList.contains(6l));		
+		Assert.assertFalse(primeList.contains(9l));		
+		Assert.assertFalse(primeList.contains(15l));		
+		Assert.assertFalse(primeList.contains(16l));		
+		
 		List<Long> fpList = prime.getPrimesAsLongStream(20,false);
+		Assert.assertEquals(primeList.size(), fpList.size());
+		Assert.assertTrue(fpList.containsAll(primeList));
+		Assert.assertTrue(primeList.containsAll(fpList));
+		
+		fpList = prime.getPrimesAsLongStream(20,true);
 		Assert.assertEquals(primeList.size(), fpList.size());
 		Assert.assertTrue(fpList.containsAll(primeList));
 		Assert.assertTrue(primeList.containsAll(fpList));
@@ -33,17 +43,17 @@ public class PrimeTest {
 	@Test
 	public void testGetPrimesAsLongStream() {
 		
-		long size = 10000;
+		long size = 8000;
 		List<Long> primeList = getPrimes(size, false);
 		List<Long> primeList2 = getPrimes(size, true);
 		Assert.assertEquals(primeList.size(), primeList2.size());
 		Assert.assertTrue(primeList.containsAll(primeList2));
 	}
 	
-	private List<Long>  getPrimes(long max, boolean isParallel) {
+	private List<Long>  getPrimes(long size, boolean isParallel) {
 		Prime prime = new Prime();		
 		Instant start = Instant.now();
-		List<Long> primeList = prime.getPrimesAsLongStream(max, isParallel);	
+		List<Long> primeList = prime.getPrimesAsLongStream(size, isParallel);	
 		Instant finish = Instant.now();
 		long elapsed = Duration.between(start, finish).toMillis() /1000;
 		System.out.println("primeList is " + primeList.size() + " took " + elapsed + " seconds, parallel is " + isParallel);

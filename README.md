@@ -28,8 +28,6 @@ Start with a Java 7 implementation, and progressively add FP concepts to illustr
 #### Prime
 Determine which of a sequence of integers are prime.  This allows for parallel computation using stream() vs parallelstream().
 
-This allows the reader to see how to proceed from an imperative to functional style of coding in Java, with some intermediate steps for pedagogic purposes.
-
 
 
 # TODO
