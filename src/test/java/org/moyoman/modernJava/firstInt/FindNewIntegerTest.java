@@ -1,7 +1,8 @@
-package org.moyoman.demo.firstInt;
+package org.moyoman.modernJava.firstInt;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.moyoman.modernJava.firstInt.FindNewInteger;
 
 public class FindNewIntegerTest {
 

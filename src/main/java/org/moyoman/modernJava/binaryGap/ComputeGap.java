@@ -1,4 +1,4 @@
-package org.moyoman.demo.binaryGap;
+package org.moyoman.modernJava.binaryGap;
 
 import java.util.ArrayList;
 import java.util.List;

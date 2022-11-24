@@ -1,7 +1,7 @@
-package org.moyoman.demo.prime.controller;
+package org.moyoman.modernJava.prime.controller;
 
 
-import org.moyoman.demo.prime.service.PrimeService;
+import org.moyoman.modernJava.prime.service.PrimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

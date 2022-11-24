@@ -1,4 +1,4 @@
-package org.moyoman.demo.enova;
+package org.moyoman.modernJava.enova;
 
 import java.util.HashMap;
 import java.util.Map;

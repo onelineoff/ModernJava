@@ -1,7 +1,8 @@
-package org.moyoman.demo.enova;
+package org.moyoman.modernJava.enova;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.moyoman.modernJava.enova.Enova;
 
 public class EnovaTest {
 //	@Test

@@ -1,4 +1,4 @@
-package org.moyoman.demo.prime.service;
+package org.moyoman.modernJava.prime.service;
 
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package org.moyoman.demo.firstInt;
+package org.moyoman.modernJava.firstInt;
 
 import java.util.Arrays;
 import java.util.HashSet;

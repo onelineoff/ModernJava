@@ -1,4 +1,4 @@
-package org.moyoman.demo.prime.service;
+package org.moyoman.modernJava.prime.service;
 
 public interface PrimeCalculator {
 	/** Determine if the input parameter is a prime number.

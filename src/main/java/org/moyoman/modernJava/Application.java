@@ -1,4 +1,4 @@
-package org.moyoman.demo;
+package org.moyoman.modernJava;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableAsync(proxyTargetClass = true)
-@ComponentScan({ "org.moyoman.demo.prime", "org.moyoman.demo.binaryGap"})
+@ComponentScan("org.moyoman.modernJava")
 public class Application {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 

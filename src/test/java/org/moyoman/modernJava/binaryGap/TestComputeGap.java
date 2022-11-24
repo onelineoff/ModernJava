@@ -1,4 +1,4 @@
-package org.moyoman.demo.binaryGap;
+package org.moyoman.modernJava.binaryGap;
 
 import java.util.HashSet;
 import java.util.List;
@@ -7,6 +7,7 @@ import java.util.Set;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.moyoman.modernJava.binaryGap.ComputeGap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

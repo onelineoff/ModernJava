@@ -1,9 +1,9 @@
-package org.moyoman.demo.prime.service;
+package org.moyoman.modernJava.prime.service;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.moyoman.demo.prime.service.SimplePrimeCalculator;
+import org.moyoman.modernJava.prime.service.SimplePrimeCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
