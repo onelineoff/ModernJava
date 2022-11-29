@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.client.RestTemplate;
@@ -15,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableAsync(proxyTargetClass = true)
 @ComponentScan("org.moyoman.modernJava")
+@EnableAspectJAutoProxy(proxyTargetClass=true)  
 public class Application {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 

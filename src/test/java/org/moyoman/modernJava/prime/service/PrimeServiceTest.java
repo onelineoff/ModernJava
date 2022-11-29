@@ -7,6 +7,9 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.moyoman.modernJava.prime.service.PrimeService;
+import org.moyoman.modernJava.util.MathUtils;
+import org.moyoman.modernJava.util.MsecDuration;
+import org.moyoman.modernJava.util.TestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,48 +30,43 @@ public class PrimeServiceTest {
 	public void testGetPrimeList() {
 		Instant start = Instant.now();
 		List<Long> primeList = primeService.getPrimes(FIRST_CANDIDATE, LAST_CANDIDATE);
-		Long xorValue = getXorValue(primeList);
+		Long xorValue = MathUtils.xor(primeList);
 		Instant end = Instant.now();
-		Duration duration = Duration.between(start, end);
-		LOGGER.info("testGetPrimeList found {} primes, xor is {}, took {} seconds", 
-				primeList.size(), xorValue, duration.getSeconds());
+		MsecDuration duration = new MsecDuration(start, end);		
+		TestUtils.logComputationResults("testGetPrimeList found {} primes, xor is {}, took {}.", 
+				primeList.size(), xorValue, duration);
 	}
 	
 	@Test
 	public void testGetPrimesThroughStreams() {
 		Instant start = Instant.now();
 		List<Long> primeList = primeService.getPrimesThroughStream(FIRST_CANDIDATE, LAST_CANDIDATE);
-		Long xorValue = getXorValue(primeList);
+		Long xorValue = MathUtils.xor(primeList);
 		Instant end = Instant.now();
-		Duration duration = Duration.between(start, end);
-		LOGGER.info("testGetPrimesThroughStreams found {} primes, xor is {}, took {} seconds", 
-				primeList.size(), xorValue, duration.getSeconds());
+		MsecDuration duration = new MsecDuration(start, end);
+		TestUtils.logComputationResults("testGetPrimesThroughStreams found {} primes, xor is {}, took {}.", 
+				primeList.size(), xorValue, duration);
 	}
 	
 	@Test
 	public void testGetPrimesThroughAlternateStreams() {
 		Instant start = Instant.now();
 		List<Long> primeList = primeService.getPrimesThroughAlternateStreams(FIRST_CANDIDATE, LAST_CANDIDATE);
-		Long xorValue = getXorValue(primeList);
+		Long xorValue = MathUtils.xor(primeList);
 		Instant end = Instant.now();
-		Duration duration = Duration.between(start, end);
-		LOGGER.info("testGetPrimesThroughAlternateStreams found {} primes, xor is {}, took {} seconds", 
-				primeList.size(), xorValue, duration.getSeconds());
+		MsecDuration duration = new MsecDuration(start, end);
+		TestUtils.logComputationResults("testGetPrimesThroughAlternateStreams found {} primes, xor is {}, took {}.", 
+				primeList.size(), xorValue, duration);
 	}
 	
 	@Test
 	public void testGetPrimesThroughJava7Threading() {
 		Instant start = Instant.now();
 		List<Long> primeList = primeService.getPrimesThroughJava7Threading(FIRST_CANDIDATE, LAST_CANDIDATE);
-		Long xorValue = getXorValue(primeList);
+		Long xorValue = MathUtils.xor(primeList);
 		Instant end = Instant.now();
-		Duration duration = Duration.between(start, end);
-		LOGGER.info("testGetPrimesThroughJava7Threading found {} primes, xor is {}, took {} seconds", 
-				primeList.size(), xorValue, duration.getSeconds());
-	}
-	
-	// TODO Make this a utility method, write unit test.
-	private Long getXorValue(List<Long> list) {
-		return list.stream().reduce((i, j) -> i ^ j).get().longValue();
+		MsecDuration duration = new MsecDuration(start, end);
+		TestUtils.logComputationResults("testGetPrimesThroughJava7Threading found {} primes, xor is {}, took {}.", 
+				primeList.size(), xorValue, duration);
 	}
 }

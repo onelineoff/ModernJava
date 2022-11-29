@@ -73,11 +73,17 @@
          <artifactId>spring-boot-starter-actuator</artifactId>
          <version>${spring.boot.version}</version>
       </dependency>
+       <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-aop</artifactId>
+         <version>${spring.boot.version}</version>
+    </dependency>
       <dependency>
          <groupId>commons-io</groupId>
-         <artifactId>commons-io</artifactId>
-         <version>${commons.io.version}</version>
+	     <artifactId>commons-io</artifactId>
+	     <version>${commons.io.version}</version>
       </dependency>
+
       <!-- Logging -->
       <dependency>
          <groupId>net.logstash.logback</groupId>

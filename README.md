@@ -31,19 +31,9 @@ This was a major release.  Some of the main features are:
 * Java IO Improvements
 * Miscellaneous Core API Improvements
 
-## Functional Programming
-### Basic examples
-
-The `com.github.onelineoff.fp.basic` package contains simple examples to illustrate the basic functionality.  This generally involves implementing some basic task using Java 7 code, then rewriting in one or more steps using the Java 8 functional programming constructs, then having unit tests call all of the various methods, and verify that the output is identical.  
-#### StringConcat
-The idea is to turn a list of 'a', 'b', 'c', 'd' into 'a-b-c-d'.
-Start with a Java 7 implementation, and progressively add FP concepts to illustrate the transition from imperative to FP style.
+## Packages 
 #### Prime
 Determine which of a sequence of integers are prime.  This allows for parallel computation using stream() vs parallelstream().
 
 
 
-# TODO
-
-1. Add Spring for the usual reasons.
-2. What are best practices for stream() versus parallelStream()?  Research and implement using Spring.
