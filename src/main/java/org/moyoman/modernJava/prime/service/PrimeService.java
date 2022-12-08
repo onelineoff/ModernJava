@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-/** Implementations of finding prime numbers using different concurrency options.*/
+/** Find prime numbers using different concurrency options.*/
 public class PrimeService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(PrimeService.class);
 	private static final long MIN_VALUE = 3;
@@ -57,23 +57,48 @@ public class PrimeService {
 	}	
 	
 	/** Get the prime numbers in the range using Java 8 FP.
+	 * This is the sequential stream version.
 	 * 
 	 * @param startValue The first value to check.
 	 * @param endValue The last value to check.
 	 * @return A list of the prime values in the range.
 	 */
-	public List<Long> getPrimesThroughStream(long startValue, long endValue) {
+	public List<Long> getPrimesThroughSequentialStream(long startValue, long endValue) {
 		// Verify parameter values
 		long first = Math.min(startValue, endValue);
 		long second = Math.max(startValue, endValue);
 		first = Math.max(first, MIN_VALUE);
 		second = Math.max(second, MIN_VALUE);
-		return LongStream.rangeClosed(first, second).parallel().filter(i -> i % 2 == 1).
+		return LongStream.rangeClosed(first, second).
+				filter(i -> primeCalculator.isPrime(i)).
+				collect(ArrayList::new, ArrayList::add, ArrayList::addAll);		
+	}
+	
+	/** Get the prime numbers in the range using Java 8 FP.
+	 * 
+	 * @param startValue The first value to check.
+	 * @param endValue The last value to check.
+	 * @return A list of the prime values in the range.
+	 */
+	public List<Long> getPrimesThroughParallelStream(long startValue, long endValue) {
+		// Verify parameter values
+		long first = Math.min(startValue, endValue);
+		long second = Math.max(startValue, endValue);
+		first = Math.max(first, MIN_VALUE);
+		second = Math.max(second, MIN_VALUE);
+		return LongStream.rangeClosed(first, second).parallel().
 				filter(i -> primeCalculator.isPrime(i)).
 				collect(ArrayList::new, ArrayList::add, ArrayList::addAll);				
 	}
 
-	public List<Long> getPrimesThroughAlternateStreams(long startValue, long endValue) {
+	/** Alternate implementation of finding prime numbers through streams.
+	 *  Verify that parallel() doesn't have to be the first call in the chain.
+	 *  
+	 * @param startValue The first value to check.
+	 * @param endValue The last value to check.
+	 * @return A list of the prime values in the range.
+	 */
+	public List<Long> getPrimesThroughAlternateParallelStream(long startValue, long endValue) {
 		// Verify parameter values
 				long first = Math.min(startValue, endValue);
 				long second = Math.max(startValue, endValue);
@@ -86,7 +111,7 @@ public class PrimeService {
 	
 	/** Use Java 7 concurrency to parallelize the prime checking calls.
 	 * 
-	 @ param startValue The first value to check.
+	 * @param startValue The first value to check.
 	 * @param endValue The last value to check.
 	 * @return A list of the prime values in the range.
 	 */

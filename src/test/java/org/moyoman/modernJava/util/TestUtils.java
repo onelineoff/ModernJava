@@ -8,7 +8,8 @@ import org.slf4j.LoggerFactory;
 public class TestUtils {
 	private static final Logger LOGGER = LoggerFactory.getLogger(TestUtils.class);
 	
-	public static void logComputationResults(String logStr, Object... args) {
-		LOGGER.info(logStr, args);
+	public static void logComputationResults(String method, int size, long xor, MsecDuration duration) {
+		String logStr = "{} found {} primes, xor is {}, took {}.";
+		LOGGER.info(logStr, method, size, xor, duration);
 	}
 }

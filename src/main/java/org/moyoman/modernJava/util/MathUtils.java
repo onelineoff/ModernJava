@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 public class MathUtils {
 	private static final Logger LOGGER = LoggerFactory.getLogger(MathUtils.class);
 	
-	/** Return the exclusive or of the input values.
+	/** Return the exclusive or (xor) of the input values.
 	 *  This can be used for comparing sets of long values for equality without
 	 *  having arbitrarily large memory requirements.
 	 *  

@@ -3,6 +3,8 @@ Modern Java
 
 # Purpose
 Example code to demonstrate various features of Java 8 and above.
+It also contains my solution to various coding problems that I was given
+on assorted job interviews.
 
 # Requirements
 1. Java 8 or later.
