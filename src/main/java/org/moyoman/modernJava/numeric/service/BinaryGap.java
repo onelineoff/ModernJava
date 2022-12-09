@@ -1,4 +1,4 @@
-package org.moyoman.modernJava.numeric;
+package org.moyoman.modernJava.numeric.service;
 
 import java.util.ArrayList;
 import java.util.List;

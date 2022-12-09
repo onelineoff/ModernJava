@@ -4,6 +4,6 @@
  *  
  *  
  */
-package org.moyoman.modernJava.numeric;
+package org.moyoman.modernJava.numeric.service;
 
 
