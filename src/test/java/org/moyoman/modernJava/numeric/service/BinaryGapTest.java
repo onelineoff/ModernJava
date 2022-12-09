@@ -1,5 +1,6 @@
 package org.moyoman.modernJava.numeric.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
@@ -78,5 +79,48 @@ public class BinaryGapTest {
 		Assert.assertTrue(oneList.get(0) == 0);
 		Assert.assertTrue(oneList.get(1) == 2);
 		Assert.assertTrue(oneList.get(2) == 5);
+	}
+	
+	@Test
+	public void testFindMaxGap() {
+		List<Integer> oneList = null;
+		int gap = binaryGap.findMaxGap(oneList);
+		Assert.assertEquals(0, gap);
+		
+		oneList = new ArrayList<>();
+		gap = binaryGap.findMaxGap(oneList);
+		Assert.assertEquals(0, gap);
+		
+		oneList.add(1);
+		gap = binaryGap.findMaxGap(oneList);
+		Assert.assertEquals(0, gap);
+		
+		oneList.add(2);
+		gap = binaryGap.findMaxGap(oneList);
+		Assert.assertEquals(0, gap);
+		
+		oneList.add(7);
+		gap = binaryGap.findMaxGap(oneList);
+		Assert.assertEquals(4, gap);
+		
+		oneList.add(10);
+		gap = binaryGap.findMaxGap(oneList);
+		Assert.assertEquals(4, gap);
+		
+		oneList.add(14);
+		gap = binaryGap.findMaxGap(oneList);
+		Assert.assertEquals(4, gap);
+		
+		oneList.add(21);
+		gap = binaryGap.findMaxGap(oneList);
+		Assert.assertEquals(6, gap);
+		
+		oneList.add(25);
+		gap = binaryGap.findMaxGap(oneList);
+		Assert.assertEquals(6, gap);
+		
+		oneList.add(31);
+		gap = binaryGap.findMaxGap(oneList);
+		Assert.assertEquals(6, gap);
 	}
 }

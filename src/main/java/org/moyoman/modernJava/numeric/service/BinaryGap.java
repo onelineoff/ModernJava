@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /** Solution to the binary gap problem.
- *  @see https://app.codility.com/programmers/lessons/1-iterations/binary_gap/
+ *  @see <A href="https://app.codility.com/programmers/lessons/1-iterations/binary_gap/">Codility Link</A>
  * 
  * A binary gap within a positive integer N is any maximal sequence of consecutive zeros 
  * that is surrounded by ones at both ends in the binary representation of N.
@@ -102,14 +102,19 @@ public class BinaryGap {
 		return oneList;
 	}
 	
+	/** Find the largest gap in the list.
+	 *  A list with less than 2 entries has a gap of 0.
+	 * @param oneList A sorted list.
+	 * @return The largest difference between 2 adjacent entries.
+	 */
 	protected int findMaxGap(List<Integer> oneList) {
 		int gapSize = 0;
-		if (oneList.size() < 2) {
+		if (oneList == null || oneList.size() < 2) {
 			gapSize = 0;
 		}
 		else {
 			for (int i=0; i<oneList.size() - 1; i++) {
-				int currGap = (oneList.get(i+1) - oneList.get(i)) -1;
+				int currGap = (oneList.get(i+1) - oneList.get(i)) - 1;
 				if (currGap > gapSize) {
 					gapSize = currGap;
 				}

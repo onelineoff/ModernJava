@@ -1,5 +1,8 @@
 package org.moyoman.modernJava.util;
 
+import java.time.Instant;
+import java.util.Random;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -7,9 +10,10 @@ import org.slf4j.LoggerFactory;
  */
 public class TestUtils {
 	private static final Logger LOGGER = LoggerFactory.getLogger(TestUtils.class);
+	private static final Random random = new Random(Instant.now().getEpochSecond());
 	
-	public static void logComputationResults(String method, int size, long xor, MsecDuration duration) {
-		String logStr = "{} found {} primes, xor is {}, took {}.";
-		LOGGER.info(logStr, method, size, xor, duration);
+	public static int getRandomInt(int max) {
+		return random.nextInt(max + 1);
 	}
+	
 }

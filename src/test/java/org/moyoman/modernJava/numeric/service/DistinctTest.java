@@ -33,6 +33,10 @@ public class DistinctTest {
 		
 		Assert.assertEquals(5, distinct.findDistinctUsingStreams(arr));
 		Assert.assertEquals(5, distinct.findDistinctNonFP(arr));
+		
+		Integer[] arr2 = {1,5,8,2,5,2,1,4,3,7,7,7,4};
+		Assert.assertEquals(7, distinct.findDistinctUsingStreams(arr2));
+		Assert.assertEquals(7, distinct.findDistinctNonFP(arr2));
 	}
 	
 	@Test

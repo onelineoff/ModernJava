@@ -18,12 +18,13 @@
       <spring.boot.version>2.7.4</spring.boot.version>
       <springframework.version>5.3.23</springframework.version>
    </properties>
+
    <parent>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-parent</artifactId>
       <version>2.7.4</version>
    </parent>
-   <packaging>jar</packaging>
+
    <dependencies>
       <!-- Application Core -->
       <dependency>
@@ -108,8 +109,25 @@
           <scope>test</scope>
       </dependency>
    </dependencies>
+
    <build>
       <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>${maven.jar.version}</version>
+         </plugin>
+         <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                </execution>
+            </executions>
+         </plugin>
          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>

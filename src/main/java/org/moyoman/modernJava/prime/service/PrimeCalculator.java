@@ -10,8 +10,7 @@ public interface PrimeCalculator {
 	
 	/** Get the next prime after the input parameter.
 	 *  If the method is called with 3, the value 5 is returned.
-	 *  
-	 *  The minimum prime returned is 3, so any input parameter <=2
+	 *  the minimum prime returned is 3, so any input parameter less than 2
 	 *  will return 3.
 	 *  
 	 * @param previousValue The value to start after.

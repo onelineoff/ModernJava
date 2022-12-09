@@ -15,6 +15,7 @@ on assorted job interviews.
 2. Type: mvn clean compile test.
 3. Type: mvn spring-boot:run
 4. REST calls are at localhost:8888, or whatever port is set in application.properties.
+5. Type: mvn package to create the executable jar file.
 
 # Purpose
 The purpose of this project is to learn and demonstrate new features in Java from version 8 on.

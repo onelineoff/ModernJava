@@ -9,6 +9,8 @@ import org.moyoman.modernJava.prime.service.PrimeService;
 import org.moyoman.modernJava.util.MathUtils;
 import org.moyoman.modernJava.util.MsecDuration;
 import org.moyoman.modernJava.util.TestUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -20,6 +22,8 @@ import org.springframework.test.context.junit4.SpringRunner;
  *  that they all return the same results.
  */
 public class PrimeServiceTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(PrimeServiceTest.class);
+	
 	private static final Long FIRST_CANDIDATE = 3l;
 	private static final Long LAST_CANDIDATE = 5000l;
 	
@@ -33,7 +37,7 @@ public class PrimeServiceTest {
 		Long xorValue = MathUtils.xor(primeList);
 		Instant end = Instant.now();
 		MsecDuration duration = new MsecDuration(start, end);		
-		TestUtils.logComputationResults("testGetPrimeList", primeList.size(), xorValue, duration);
+		logComputationResults("testGetPrimeList", primeList.size(), xorValue, duration);
 	}
 	
 	@Test
@@ -43,7 +47,7 @@ public class PrimeServiceTest {
 		Long xorValue = MathUtils.xor(primeList);
 		Instant end = Instant.now();
 		MsecDuration duration = new MsecDuration(start, end);
-		TestUtils.logComputationResults("testGetPrimesThroughSequentialStream", primeList.size(), xorValue, duration);
+		logComputationResults("testGetPrimesThroughSequentialStream", primeList.size(), xorValue, duration);
 	}
 	
 	@Test
@@ -53,7 +57,7 @@ public class PrimeServiceTest {
 		Long xorValue = MathUtils.xor(primeList);
 		Instant end = Instant.now();
 		MsecDuration duration = new MsecDuration(start, end);
-		TestUtils.logComputationResults("testGetPrimesThroughParallelStream", primeList.size(), xorValue, duration);
+		logComputationResults("testGetPrimesThroughParallelStream", primeList.size(), xorValue, duration);
 	}
 	
 	@Test
@@ -63,7 +67,7 @@ public class PrimeServiceTest {
 		Long xorValue = MathUtils.xor(primeList);
 		Instant end = Instant.now();
 		MsecDuration duration = new MsecDuration(start, end);
-		TestUtils.logComputationResults("testGetPrimesThroughAlternateParallelStream", primeList.size(), xorValue, duration);
+		logComputationResults("testGetPrimesThroughAlternateParallelStream", primeList.size(), xorValue, duration);
 	}
 	
 	@Test
@@ -73,6 +77,11 @@ public class PrimeServiceTest {
 		Long xorValue = MathUtils.xor(primeList);
 		Instant end = Instant.now();
 		MsecDuration duration = new MsecDuration(start, end);
-		TestUtils.logComputationResults("testGetPrimesThroughJava7Threading", primeList.size(), xorValue, duration);
+		logComputationResults("testGetPrimesThroughJava7Threading", primeList.size(), xorValue, duration);
+	}
+	
+	private static void logComputationResults(String method, int size, long xor, MsecDuration duration) {
+		String logStr = "{} found {} primes, xor is {}, took {}.";
+		LOGGER.info(logStr, method, size, xor, duration);
 	}
 }
