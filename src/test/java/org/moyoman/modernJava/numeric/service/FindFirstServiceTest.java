@@ -15,13 +15,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class FindFirstTest {
-	private static final Logger LOGGER = LoggerFactory.getLogger(FindFirstTest.class);
+public class FindFirstServiceTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(FindFirstServiceTest.class);
 
 	private static final Integer LARGE_ARRAY_SIZE = 10000000;
 	
 	@Autowired
-	FindFirst findFirst;
+	FindFirstService findFirst;
 	
 	@Test
 	public void testFindInt() {

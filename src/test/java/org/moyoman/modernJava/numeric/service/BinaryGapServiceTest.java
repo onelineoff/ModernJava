@@ -14,11 +14,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class BinaryGapTest {
-	private static final Logger LOGGER = LoggerFactory.getLogger(BinaryGapTest.class);
+public class BinaryGapServiceTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(BinaryGapServiceTest.class);
 	
 	@Autowired
-	private BinaryGap binaryGap;
+	private BinaryGapService binaryGap;
 	
 	@Test
 	/** Test assorted values for correctness.

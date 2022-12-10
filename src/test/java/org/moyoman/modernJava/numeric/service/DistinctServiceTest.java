@@ -18,14 +18,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class DistinctTest {
-	private static final Logger LOGGER = LoggerFactory.getLogger(DistinctTest.class);
+public class DistinctServiceTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(DistinctServiceTest.class);
 	
 	private static final Integer LARGE_ARRAY_SIZE = 10000000;
 	private static final Integer MAX_ARRAY_VALUE = LARGE_ARRAY_SIZE + (int) (LARGE_ARRAY_SIZE * 0.1f);
 	
 	@Autowired
-	private Distinct distinct;
+	private DistinctService distinct;
 	
 	@Test
 	public void testDistinct() {

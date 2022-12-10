@@ -1,5 +1,7 @@
 package org.moyoman.modernJava.numeric.service;
 
+import org.springframework.stereotype.Service;
+
 /** Another coding interview type problem.
  *  An array of integers should contain either 0 of an integer
  *  or the same number of entries as the value, e.g., there should
@@ -14,7 +16,8 @@ package org.moyoman.modernJava.numeric.service;
  *  A null or empty array should return 0.
  *
  */
-public class MinimumMoves {
+@Service
+public class MinimumMovesService {
 	public int getMinimumMoves(int[] arr) {
 		int moveCount = 0;
 		if (arr == null || arr.length == 0) {

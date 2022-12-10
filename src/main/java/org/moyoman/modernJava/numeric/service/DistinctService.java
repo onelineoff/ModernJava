@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
  *  Provide both stream and non-stream implementations for comparison.
  */
 @Service
-public class Distinct {
-	private static final Logger LOGGER = LoggerFactory.getLogger(Distinct.class);
+public class DistinctService {
+	private static final Logger LOGGER = LoggerFactory.getLogger(DistinctService.class);
 	
 	/** Find the number of distinct elements in the array using streams.
 	 * 

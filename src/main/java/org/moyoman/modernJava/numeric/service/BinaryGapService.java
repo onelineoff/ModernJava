@@ -17,8 +17,8 @@ import org.springframework.stereotype.Service;
  *
  */
 @Service
-public class BinaryGap {
-	private static final Logger LOGGER = LoggerFactory.getLogger(BinaryGap.class);
+public class BinaryGapService {
+	private static final Logger LOGGER = LoggerFactory.getLogger(BinaryGapService.class);
 	
 	/** Find the binary gap for the given input.
 	 *  This appears to work, but is inelegant and error-prone.

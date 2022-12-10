@@ -1,5 +1,7 @@
 package org.moyoman.modernJava.prime.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /** Calculate prime numbers.
@@ -10,7 +12,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class SimplePrimeCalculator implements PrimeCalculator {
-
+	private static final Logger LOGGER = LoggerFactory.getLogger(SimplePrimeCalculator.class);
+	
 	@Override
 	public Long getNextPrime(long previousValue) {
 		long candidate = previousValue + 1;
@@ -29,6 +32,8 @@ public class SimplePrimeCalculator implements PrimeCalculator {
 				candidate++;
 			}
 		}
+		
+		LOGGER.info("getNextPrime, value is {}, is prime is {}", previousValue, candidate);
 		return candidate;
 	}
 
@@ -52,6 +57,7 @@ public class SimplePrimeCalculator implements PrimeCalculator {
 			}
 		}
 		
+		LOGGER.info("isPrime, value is {}, is prime is {}", candidate, isPrime);
 		return isPrime;
 		
 	}

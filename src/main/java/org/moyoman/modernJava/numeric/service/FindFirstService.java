@@ -17,8 +17,8 @@ import org.springframework.stereotype.Service;
  *  Both streaming, and non-FP solutions are implemented here, so they can be compared.
  *
  */
-public class FindFirst {
-	private static final Logger LOGGER = LoggerFactory.getLogger(FindFirst.class);
+public class FindFirstService {
+	private static final Logger LOGGER = LoggerFactory.getLogger(FindFirstService.class);
 	
 	/** Find the first value not in the array for the specified range.
 	 * 

@@ -9,6 +9,7 @@
    </organization>
    <properties>
       <commons.io.version>2.11.0</commons.io.version>
+      <lombok.version>1.18.24</lombok.version>
       <logstash.logback.version>7.0.1</logstash.logback.version>
       <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
       <maven.build.timestamp.format>EEE MMM dd yyyy HH:mm:ss zzz</maven.build.timestamp.format>
@@ -84,7 +85,12 @@
 	     <artifactId>commons-io</artifactId>
 	     <version>${commons.io.version}</version>
       </dependency>
-
+      <dependency>
+         <groupId>org.projectlombok</groupId>
+         <artifactId>lombok</artifactId>
+         <version>${lombok.version}</version>
+      </dependency>
+       
       <!-- Logging -->
       <dependency>
          <groupId>net.logstash.logback</groupId>

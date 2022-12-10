@@ -1,5 +1,7 @@
 package org.moyoman.modernJava.numeric.service;
 
+import org.springframework.stereotype.Service;
+
 /** Another coding interview type problem.
  * 
  *  An array contains integer values, which are categorized by their first and last digits,
@@ -14,7 +16,8 @@ package org.moyoman.modernJava.numeric.service;
  *  Various solutions are presented here, from the simple, error prone one I wrote during a live coding exercise,
  *  to a professional quality (hopefully) implementation that might be used in production code.
  */
-public class MaxSum {
+@Service
+public class MaxSumService {
 	public static final Integer SENTINEL = -1;
 	public int getMaxValue(int[] arr) {
 		int maxValue = SENTINEL;

@@ -49,7 +49,8 @@ There are lots of limitations in this project, including, but not limited to:
 * The docker functionality is not yet implemented.
 * Swagger functionality should be added.
 * Spring security should be implemented.
-
+* Absurd amount of logging on load tests, fix in test config.
+* Support for json in REST calls, but not XML.
 ## Packages 
 ### Prime
 Determine which of a sequence of integers are prime.  This allows for comparison among using stream(), parallelstream(), or Java 7 type multi-threading.
