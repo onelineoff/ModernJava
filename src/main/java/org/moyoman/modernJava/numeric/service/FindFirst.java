@@ -68,7 +68,7 @@ public class FindFirst {
 		
 		Arrays.sort(arr);
 		int index = 0;
-		for (int i=first; i<last; i++) {
+		for (int i=start; i<end; i++) {
 			index = indexOfValue(arr, i, index);
 			if (index < 0 ) {
 				missingValue = i;

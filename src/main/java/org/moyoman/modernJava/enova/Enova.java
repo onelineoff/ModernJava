@@ -11,6 +11,11 @@ public class Enova {
 		System.out.println("Enova, do stuff");
 	}
 	
+	// Each element should be present the same number of times as its value.
+	// A move is either to add or remove a value
+	// So, for 3,3 - 1 move to add a third 3
+	// For 8,8,8 - 3 moves to remove the 3 8s.
+	// Just get a count of the number of moves, don't do the actual array manipulation.
 	public int arrayManipulation(Integer[] A) {
 		if (A == null || A.length == 0) {
 			return 0;
