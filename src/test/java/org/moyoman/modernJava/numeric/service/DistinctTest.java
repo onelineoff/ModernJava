@@ -40,6 +40,7 @@ public class DistinctTest {
 	}
 	
 	@Test
+	// TODO: Get xor value from each to verify the results.
 	public void testEfficiency() {
 		// Generate a large amount of random test data to use for the two different methods.
 		Random random = new Random(Instant.now().getEpochSecond());
