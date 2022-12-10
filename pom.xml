@@ -2,13 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
    <modelVersion>4.0.0</modelVersion>
    <groupId>org.moyoman.ModernJava</groupId>
-   <artifactId>ModernJava-code</artifactId>
+   <artifactId>ModernJava</artifactId>
    <version>0.1.0-SNAPSHOT</version>
    <organization>
       <name>David Weiss</name>
    </organization>
    <properties>
       <commons.io.version>2.11.0</commons.io.version>
+      <lombok.version>1.18.24</lombok.version>
       <logstash.logback.version>7.0.1</logstash.logback.version>
       <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
       <maven.build.timestamp.format>EEE MMM dd yyyy HH:mm:ss zzz</maven.build.timestamp.format>
@@ -18,12 +19,13 @@
       <spring.boot.version>2.7.4</spring.boot.version>
       <springframework.version>5.3.23</springframework.version>
    </properties>
+
    <parent>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-parent</artifactId>
       <version>2.7.4</version>
    </parent>
-   <packaging>jar</packaging>
+
    <dependencies>
       <!-- Application Core -->
       <dependency>
@@ -73,11 +75,22 @@
          <artifactId>spring-boot-starter-actuator</artifactId>
          <version>${spring.boot.version}</version>
       </dependency>
+       <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-aop</artifactId>
+         <version>${spring.boot.version}</version>
+    </dependency>
       <dependency>
          <groupId>commons-io</groupId>
-         <artifactId>commons-io</artifactId>
-         <version>${commons.io.version}</version>
+	     <artifactId>commons-io</artifactId>
+	     <version>${commons.io.version}</version>
       </dependency>
+      <dependency>
+         <groupId>org.projectlombok</groupId>
+         <artifactId>lombok</artifactId>
+         <version>${lombok.version}</version>
+      </dependency>
+       
       <!-- Logging -->
       <dependency>
          <groupId>net.logstash.logback</groupId>
@@ -102,8 +115,25 @@
           <scope>test</scope>
       </dependency>
    </dependencies>
+
    <build>
       <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>${maven.jar.version}</version>
+         </plugin>
+         <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                </execution>
+            </executions>
+         </plugin>
          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>

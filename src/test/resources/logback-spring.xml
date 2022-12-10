@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+  <springProfile name="default, local,unit,dev,test">
+    <appender class="ch.qos.logback.core.ConsoleAppender" name="CONSOLE">
+      <encoder>
+        <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+      </encoder>
+    </appender>
+
+    <root level="DEBUG">
+      <appender-ref ref="CONSOLE"/>
+    </root>
+    <logger level="WARN" name="org.springframework"/>
+    <logger level="ERROR" name="org.hibernate"/>
+    <logger level="WARN" name="org.moyoman.modernJava.numeric.service.BinaryGap"/>
+  </springProfile>
+</configuration>
