@@ -28,14 +28,14 @@ public class PrimeApi {
 		return ResponseEntity.ok("Prime server running\n");
 	}
 	
-	@GetMapping(value="isPrime/{value}", produces={"application/json", "application/xml"})
+	@GetMapping(value="isPrime/{value}", produces="application/json")
 	public ResponseEntity<IsPrimeDto> isPrime(@PathVariable(name="value") long value) {
 		boolean isPrime = primeService.isPrime(value);
 		IsPrimeDto isPrimeDto = new IsPrimeDto(value, isPrime);
 		return ResponseEntity.ok(isPrimeDto);
 	}
 	
-	@GetMapping(value="getPrimes/{start}/{end}", produces={"application/json", "application/xml"})
+	@GetMapping(value="getPrimes/{start}/{end}", produces="application/json")
 	public ResponseEntity<PrimeListDto> getPrimes(
 			@PathVariable(name="start") long startValue, @PathVariable(name="end") long endValue) {
 		List<Long> primeList = primeService.getPrimesThroughParallelStream(startValue, endValue);
