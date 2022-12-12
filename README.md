@@ -16,6 +16,7 @@ It also contains my solution to various coding problems that I was given on asso
 3. Type: mvn spring-boot:run
 4. REST calls are at localhost:8888, or whatever port is set in application.properties.
 5. Type: mvn package to create the executable jar file.
+6. For the openapi3 (swagger) interface, in the browser, go to: http://localhost:8888/swagger-ui/index.html
 
 # Purpose
 The primary purpose of this project is to learn and demonstrate new features in Java from version 8 on.
@@ -47,10 +48,8 @@ There are lots of limitations in this project, including, but not limited to:
 * Tests need to be divided up into short and longer running for convenience.
 * The pom file should be cleaned up.
 * The docker functionality is not yet implemented.
-* Swagger functionality should be added.
 * Spring security should be implemented.
 * Absurd amount of logging on load tests, fix in test config.
-* Support for json in REST calls, but not XML.
 ## Packages 
 ### Prime
 Determine which of a sequence of integers are prime.  This allows for comparison among using stream(), parallelstream(), or Java 7 type multi-threading.

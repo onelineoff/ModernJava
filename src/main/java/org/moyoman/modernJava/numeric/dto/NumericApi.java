@@ -29,7 +29,7 @@ public class NumericApi {
 	@Autowired
 	private MinimumMovesService minimumMovesService;
 	
-	@GetMapping(value="binaryGap/{value}", produces={"application/json", "application/xml"})
+	@GetMapping(value="binaryGap/{value}", produces="application/json")
 	public ResponseEntity<Integer> getBinaryGap(@PathVariable(name="value") int value) {
 		Integer binaryGapValue = binaryGapService.betterSolution(value);
 		return ResponseEntity.ok(binaryGapValue);
