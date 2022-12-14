@@ -1,14 +1,10 @@
 package org.moyoman.modernJava.numeric.service;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeSet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -72,6 +68,8 @@ public class MaxSumService {
 		
 		return maxValue;
 	}
+	
+	// TODO: Not sure if getMaxValue() can be rewritten using only streams.  Take a look.
 	
 	/** Produce a map of lists with elements in the appropriate list.
 	 *  The categories are as explained at the top of this file.

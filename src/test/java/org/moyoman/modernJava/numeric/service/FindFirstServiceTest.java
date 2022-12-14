@@ -78,25 +78,44 @@ public class FindFirstServiceTest {
 	}
 	
 	@Test
-	public void testFindFirstNotInArrayNonFP() {
+	public void testFindFirstNotInArrayTediousJava7() {
 		Integer[] arr = getLargeSortedTestArray();
 		Instant start = Instant.now();
-		int missing = findFirst.findFirstNotInArrayNonFP(arr, 0, LARGE_ARRAY_SIZE);
+		int missing = findFirst.findFirstNotInArrayTediousJava7(arr, 0, LARGE_ARRAY_SIZE);
 		Instant end = Instant.now();
 		MsecDuration duration = new MsecDuration(start, end);
 		int expected = LARGE_ARRAY_SIZE / 2;
 		Assert.assertEquals(expected, missing);
-		LOGGER.info("findFirstNotInArrayNonFP took {} for sorted array of size {}", duration, LARGE_ARRAY_SIZE);
+		LOGGER.info("findFirstNotInArrayTediousJava7 took {} for sorted array of size {}", duration, LARGE_ARRAY_SIZE);
 		
 		scrambleTestArray(arr);
 		start = Instant.now();
-		missing = findFirst.findFirstNotInArrayNonFP(arr, 0, LARGE_ARRAY_SIZE);
+		missing = findFirst.findFirstNotInArrayTediousJava7(arr, 0, LARGE_ARRAY_SIZE);
 		end = Instant.now();
 		duration = new MsecDuration(start, end);
 		Assert.assertEquals(expected, missing);
-		LOGGER.info("findFirstNotInArrayNonFP took {} for scrambled array of size {}", duration, LARGE_ARRAY_SIZE);
+		LOGGER.info("findFirstNotInArrayTediousJava7 took {} for scrambled array of size {}", duration, LARGE_ARRAY_SIZE);
 	}
 	
+	@Test
+	public void testFindFirstNotInArrayUsingSet() {
+		Integer[] arr = getLargeSortedTestArray();
+		Instant start = Instant.now();
+		int missing = findFirst.findFirstNotInArrayUsingSet(arr, 0, LARGE_ARRAY_SIZE);
+		Instant end = Instant.now();
+		MsecDuration duration = new MsecDuration(start, end);
+		int expected = LARGE_ARRAY_SIZE / 2;
+		Assert.assertEquals(expected, missing);
+		LOGGER.info("findFirstNotInArrayUsingSet took {} for sorted array of size {}", duration, LARGE_ARRAY_SIZE);
+		
+		scrambleTestArray(arr);
+		start = Instant.now();
+		missing = findFirst.findFirstNotInArrayUsingSet(arr, 0, LARGE_ARRAY_SIZE);
+		end = Instant.now();
+		duration = new MsecDuration(start, end);
+		Assert.assertEquals(expected, missing);
+		LOGGER.info("findFirstNotInArrayUsingSet took {} for scrambled array of size {}", duration, LARGE_ARRAY_SIZE);
+	}
 	private Integer[] getLargeSortedTestArray() {
 		Integer[] arr = new Integer[LARGE_ARRAY_SIZE];
 		

@@ -55,6 +55,7 @@ public class MinimumMovesService {
 		int count = 0;
 		Optional<Integer> retVal = elementMap.entrySet().stream().map(
 				e -> Math.min(e.getValue(), Math.abs(e.getKey() - e.getValue()))).reduce(Integer::sum);
+		
 		if (retVal.isPresent()) {
 			count = retVal.get();
 		}
