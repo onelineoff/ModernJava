@@ -82,3 +82,5 @@ An array of integers should contain either 0 entries of a number, or the same nu
 
 A move consists of either adding or removing an entry to the array.  The problem is to determine the minimum number of moves to modify the array so that it meets the criterion above.
 
+## Documentation
+The docs directory contains a number of markdown files which document various more recent java features.

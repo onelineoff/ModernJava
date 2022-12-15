@@ -2,8 +2,8 @@ package org.moyoman.modernJava.prime.controller;
 
 import java.util.List;
 
-import org.moyoman.modernJava.prime.dto.IsPrimeDto;
-import org.moyoman.modernJava.prime.dto.PrimeListDto;
+import org.moyoman.modernJava.dto.IsPrimeDto;
+import org.moyoman.modernJava.dto.PrimeListDto;
 import org.moyoman.modernJava.prime.service.PrimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/primes/")
+@RequestMapping("/prime/")
 /** Rest controller class for the prime service.
  *  This is for illustration purposes, not meant for anything useful.
  *  

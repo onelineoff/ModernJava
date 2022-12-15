@@ -1,4 +1,4 @@
-package org.moyoman.modernJava.util;
+package org.moyoman.modernJava.dto;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -34,6 +34,10 @@ public class MsecDuration {
 		return msec;
 	}
 
+	public int getTotalMsec() {
+		return 1000 * seconds + msec;
+	}
+	
 	public void setMsec(int msec) {
 		this.msec = msec;
 	}

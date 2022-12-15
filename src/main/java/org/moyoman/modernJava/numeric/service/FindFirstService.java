@@ -6,6 +6,7 @@ import java.util.OptionalInt;
 import java.util.Set;
 import java.util.stream.IntStream;
 
+import org.moyoman.modernJava.dto.FindFirstEfficiencyDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -131,5 +132,13 @@ public class FindFirstService {
 		}
 		
 		return valueIndex;
+	}
+	
+	public FindFirstEfficiencyDto testEfficiency(int size) {
+		FindFirstEfficiencyDto dto = new FindFirstEfficiencyDto(size);
+		
+		
+		
+		return dto;
 	}
 }

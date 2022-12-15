@@ -1,5 +1,6 @@
-package org.moyoman.modernJava.numeric.dto;
+package org.moyoman.modernJava.numeric.controller;
 
+import org.moyoman.modernJava.dto.DistinctEfficiencyDto;
 import org.moyoman.modernJava.numeric.service.BinaryGapService;
 import org.moyoman.modernJava.numeric.service.DistinctService;
 import org.moyoman.modernJava.numeric.service.FindFirstService;
@@ -33,6 +34,16 @@ public class NumericApi {
 	public ResponseEntity<Integer> getBinaryGap(@PathVariable(name="value") int value) {
 		Integer binaryGapValue = binaryGapService.betterSolution(value);
 		return ResponseEntity.ok(binaryGapValue);
-		
 	}
+	
+	@GetMapping(value="distinct/efficiency/{size}", produces="application/json")
+	public ResponseEntity<DistinctEfficiencyDto> testDistinctService(@PathVariable(name="size") int size) {
+		return ResponseEntity.ok(distinctService.testEfficiency(size));
+	}
+	
+	// TODO Find first
+	
+	// TODO Max sum
+	
+	// TODO minimum moves
 }
