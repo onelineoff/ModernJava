@@ -4,13 +4,14 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 
 import org.moyoman.modernJava.dto.DistinctEfficiencyDto;
 import org.moyoman.modernJava.dto.MsecDuration;
+import org.moyoman.modernJava.util.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /** Find the number of distinct values in an array.
@@ -19,6 +20,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class DistinctService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DistinctService.class);
+	
+	@Autowired
+	private ArrayUtils arrayUtils;
 	
 	/** Find the number of distinct elements in the array using streams.
 	 * 
@@ -58,15 +62,8 @@ public class DistinctService {
 		dto.setSize(size);
 		
 		// Generate a large amount of random test data to use for the two different methods.
-		Random random = new Random(Instant.now().getEpochSecond());
-		Integer[] dataArray = new Integer[size];
-		Set<Integer> elementSet = new HashSet<>();
-		
 		int maxValue = (int) (size * 1.1f);
-		for (int i=0; i<size; i++) {
-			dataArray[i] = random.nextInt(maxValue + 1);
-			elementSet.add(dataArray[i]);
-		}
+		Integer[] dataArray = arrayUtils.getRandomIntegerArray(size, maxValue);
 		
 		Instant start = Instant.now();
 		long distinctCount = findDistinctUsingStreams(dataArray);

@@ -1,5 +1,6 @@
 package org.moyoman.modernJava.numeric.service;
 
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.OptionalInt;
@@ -7,8 +8,11 @@ import java.util.Set;
 import java.util.stream.IntStream;
 
 import org.moyoman.modernJava.dto.FindFirstEfficiencyDto;
+import org.moyoman.modernJava.dto.MsecDuration;
+import org.moyoman.modernJava.util.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,6 +25,9 @@ import org.springframework.stereotype.Service;
 public class FindFirstService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(FindFirstService.class);
 	private static final Integer NOT_FOUND = -1;
+	
+	@Autowired
+	private ArrayUtils arrayUtils;
 	
 	/** Find the first value not in the array for the specified range.
 	 * 
@@ -134,10 +141,51 @@ public class FindFirstService {
 		return valueIndex;
 	}
 	
+	/** Determine the efficiency of different implementations for the given input size.
+	 *  Generate random values based on the input parameter, run the different implementations,
+	 *  and set the time for each.
+	 *  
+	 * @param size The number of random values to use.
+	 * @return The dto with the timing information.
+	 */
 	public FindFirstEfficiencyDto testEfficiency(int size) {
 		FindFirstEfficiencyDto dto = new FindFirstEfficiencyDto(size);
+		int expected = size / 2;
+		Integer[] arr = arrayUtils.getSortedIntegerArrayWithMissingValue(size, expected);
+		arr = arrayUtils.scrambleTestArray(arr);
 		
+		Instant start = Instant.now();
+		int found = findFirstNotInArrayUsingStreams(arr, 0, size + 1);
+		if (found != expected) {
+			dto.setSuccessful(false);
+			String errMsg = "findFirstNotInArrayUsingStreams() failed, expected " + expected + ", got " + found;
+			dto.setErrorMessage(errMsg);
+		}
+		Instant end = Instant.now();
+		MsecDuration duration = new MsecDuration(start, end);
+		dto.setStreamTimeMsec(duration.getTotalMsec());
 		
+		start = Instant.now();
+		found = findFirstNotInArrayTediousJava7(arr, 0, size + 1);
+		if (found != expected) {
+			dto.setSuccessful(false);
+			String errMsg = "findFirstNotInArrayTediousJava7() failed, expected " + expected + ", got " + found;
+			dto.setErrorMessage(errMsg);
+		}
+		end = Instant.now();
+		duration = new MsecDuration(start, end);
+		dto.setTediousTimeMsec(duration.getTotalMsec());
+		
+		start = Instant.now();
+		found = findFirstNotInArrayUsingSet(arr, 0, size + 1);
+		if (found != expected) {
+			dto.setSuccessful(false);
+			String errMsg = "findFirstNotInArrayUsingSet() failed, expected " + expected + ", got " + found;
+			dto.setErrorMessage(errMsg);
+		}
+		end = Instant.now();
+		duration = new MsecDuration(start, end);
+		dto.setSetTimeMsec(duration.getTotalMsec());
 		
 		return dto;
 	}

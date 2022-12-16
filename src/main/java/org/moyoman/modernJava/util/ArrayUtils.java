@@ -55,6 +55,25 @@ public class ArrayUtils {
 		return arr;
 	}
 	
+	/** Get a sorted array with values from 0 to size + 1, skipping missingValue.
+	 * 
+	 * @param size The size of the array
+	 * @param missingValue The value to skip
+	 * @return The Integer array.
+	 */
+	public Integer[] getSortedIntegerArrayWithMissingValue(int size, int missingValue) {
+		Integer[] arr = new Integer[size];
+		for (int i=0; i<missingValue; i++) {
+			arr[i] = i;
+		}
+		
+		for (int i=missingValue; i<size; i++) {
+			arr[i] = i+1;
+		}
+		
+		return arr;
+	}
+	
 	/** Randomly scramble the values in the array.
 	 *  The scrambled array contains the same values,
 	 *  just in a different order.

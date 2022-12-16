@@ -5,12 +5,16 @@ public class FindFirstEfficiencyDto {
 	private long streamTimeMsec;
 	private long setTimeMsec;
 	private long tediousTimeMsec;
+	private String errorMessage;
+	private boolean isSuccessful;
 	
 	public FindFirstEfficiencyDto() {		
+		isSuccessful = true;
 	}
 	
 	public FindFirstEfficiencyDto(int size) {
 		this.size = size;
+		this.isSuccessful = true;
 	}
 
 	public int getSize() {
@@ -37,10 +41,27 @@ public class FindFirstEfficiencyDto {
 	public void setTediousTimeMsec(long tediousTimeMsec) {
 		this.tediousTimeMsec = tediousTimeMsec;
 	}
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	public boolean isSuccessful() {
+		return isSuccessful;
+	}
+
+	public void setSuccessful(boolean isSuccessful) {
+		this.isSuccessful = isSuccessful;
+	}
+
 	@Override
 	public String toString() {
 		return "FindFirstEfficiencyDto [size=" + size + ", streamTimeMsec=" + streamTimeMsec + ", setTimeMsec="
-				+ setTimeMsec + ", tediousTimeMsec=" + tediousTimeMsec + "]";
+				+ setTimeMsec + ", tediousTimeMsec=" + tediousTimeMsec + ", errorMessage=" + errorMessage
+				+ ", isSuccessful=" + isSuccessful + "]";
 	}
-	
 }
