@@ -9,7 +9,7 @@
       </encoder>
     </appender>
 
-    <root level="DEBUG">
+    <root level="WARN">
       <appender-ref ref="CONSOLE"/>
     </root>
     <logger level="WARN" name="org.springframework"/>
