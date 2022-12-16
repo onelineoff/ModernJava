@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.moyoman.modernJava.dto.MsecDuration;
 import org.moyoman.modernJava.prime.service.PrimeService;
 import org.moyoman.modernJava.util.MathUtils;
-import org.moyoman.modernJava.util.MsecDuration;
 import org.moyoman.modernJava.util.TestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

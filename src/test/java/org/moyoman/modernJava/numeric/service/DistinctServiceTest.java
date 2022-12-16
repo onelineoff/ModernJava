@@ -9,7 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.junit.runner.RunWith;
-import org.moyoman.modernJava.util.MsecDuration;
+import org.moyoman.modernJava.dto.MsecDuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

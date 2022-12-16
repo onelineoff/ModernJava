@@ -121,6 +121,7 @@ public class BinaryGapService {
 			}			
 		}
 		
+		LOGGER.info("Found a max gap of {} for {}", gapSize, oneList);
 		return gapSize;
 	}
 }
