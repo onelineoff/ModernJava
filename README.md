@@ -42,6 +42,9 @@ This was a major release.  Some of the main features are:
 * Miscellaneous Core API Improvements
 
 ## TODO
+I could put a lot more time into this project, but it serves my purposes for now,
+so I will be moving on to another, more useful project instead.
+
 There are lots of limitations in this project, including, but not limited to:
 * Controllers need to be added for all the services.
 * The tests need to be enhanced.
