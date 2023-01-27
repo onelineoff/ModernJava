@@ -41,6 +41,42 @@ This was a major release.  Some of the main features are:
 * Java IO Improvements
 * Miscellaneous Core API Improvements
 
+# Java 9
+* Module System (Project Jigsaw)
+* JShell command line tool (repl)
+* New ProcessHandle class for information about external processes.
+* Jcomd command line tool for analyzing running programs.
+* java.util.concurrent.flow class for reactive programming.
+* Unified JVM logging.
+* Optional.stream() method.
+
+# Java 10
+* Assorted new stream methods.
+    * List, Set, Map have copyOf(Collection c) methods.  
+    * Collectors has to UnmodifiableList(), Set(), or Map().
+    * Optional classes have a new orElseThrow() method.
+* Start of 6 month relase cycle 
+
+# Java 11
+* java.net.http package with new Http client.
+* New methods on String class:
+    * isBlank()
+    * lines()
+    * strip()
+    * stripLeading()
+    * stripTrailing()
+    * repeat()
+* Files class contains readString() and writeString() methods.
+* Collection has a new toArray() method which returns an array of the correct type, not Object[].
+* Predicate has a new not() method.
+* Epsilon no-op garbage collector, useful under special conditions.
+* JFR (Java Flight Recorder) now open sourced.
+* JMC (Java Mission Control) now needs to be downloaded separately.
+* TLS upgraded to 1.3 for greater security.
+* Unicode 10 support.
+
+# Java 12
+
 ## TODO
 I could put a lot more time into this project, but it serves my purposes for now,
 so I will be moving on to another, more useful project instead.
