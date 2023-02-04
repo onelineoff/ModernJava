@@ -27,6 +27,9 @@ It is intended that the code on the main branch is always in a good state, while
 
 Many of these problems are implemented both with and without streams.  The time to run are compared as well as the correctness of the solution.
 
+Below is a list of new features by release.  Features are put in the
+first release where they are production features, not preview or incubating.
+
 # Java 8
 This was a major release.  Some of the main features are:
 * Functional Programming
@@ -40,6 +43,63 @@ This was a major release.  Some of the main features are:
 * Concurrency API Changes/Enhancements
 * Java IO Improvements
 * Miscellaneous Core API Improvements
+
+# Java 9
+* Module System (Project Jigsaw)
+* JShell command line tool (repl)
+* New ProcessHandle class for information about external processes.
+* Jcomd command line tool for analyzing running programs.
+* java.util.concurrent.flow class for reactive programming.
+* Unified JVM logging.
+* Optional.stream() method.
+
+# Java 10
+* Assorted new stream methods.
+    * List, Set, Map have copyOf(Collection c) methods.  
+    * Collectors has to UnmodifiableList(), Set(), or Map().
+    * Optional classes have a new orElseThrow() method.
+* Start of 6 month relase cycle 
+
+# Java 11
+* java.net.http package with new Http client.
+* New methods on String class:
+    * isBlank()
+    * lines()
+    * strip()
+    * stripLeading()
+    * stripTrailing()
+    * repeat()
+* Files class contains readString() and writeString() methods.
+* Collection has a new toArray() method which returns an array of the correct type, not Object[].
+* Predicate has a new not() method.
+* Epsilon no-op garbage collector, useful under special conditions.
+* JFR (Java Flight Recorder) now open sourced.
+* JMC (Java Mission Control) now needs to be downloaded separately.
+* TLS upgraded to 1.3 for greater security.
+* Unicode 10 support.
+
+# Java 12
+No major changes in this release.
+* String has new indent() and transform() methods.
+* Files class has new mismatch() method.
+* Collectors has a teeing() method for stream processing.
+
+# Java 13
+Various minor changes.
+* Unicode 12.1 support
+
+# Java 14
+* Switch expressions
+* More helpful NPE exceptions.
+* JFR Event Streaming
+
+# Java 15
+* Text Blocks 
+* Records for immutable classes.
+* Sealed classes.
+
+# Java 16
+* 
 
 ## TODO
 I could put a lot more time into this project, but it serves my purposes for now,
