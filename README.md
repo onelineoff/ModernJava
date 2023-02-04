@@ -27,6 +27,9 @@ It is intended that the code on the main branch is always in a good state, while
 
 Many of these problems are implemented both with and without streams.  The time to run are compared as well as the correctness of the solution.
 
+Below is a list of new features by release.  Features are put in the
+first release where they are production features, not preview or incubating.
+
 # Java 8
 This was a major release.  Some of the main features are:
 * Functional Programming
@@ -76,6 +79,27 @@ This was a major release.  Some of the main features are:
 * Unicode 10 support.
 
 # Java 12
+No major changes in this release.
+* String has new indent() and transform() methods.
+* Files class has new mismatch() method.
+* Collectors has a teeing() method for stream processing.
+
+# Java 13
+Various minor changes.
+* Unicode 12.1 support
+
+# Java 14
+* Switch expressions
+* More helpful NPE exceptions.
+* JFR Event Streaming
+
+# Java 15
+* Text Blocks 
+* Records for immutable classes.
+* Sealed classes.
+
+# Java 16
+* 
 
 ## TODO
 I could put a lot more time into this project, but it serves my purposes for now,
