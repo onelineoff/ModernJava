@@ -18,8 +18,11 @@ It also contains my solution to various coding problems that I was given on asso
 5. Type: mvn package to create the executable jar file.
 6. For the openapi3 (swagger) interface, in the browser, go to: http://localhost:8888/swagger-ui/index.html
 
-# Additional
-In progress, need to deploy Postgres database, populate it, etc.
+# Caveat
+As of right now, the application won't start unless there is a Postgres database set up as in the application.properties file.  Going forward, there are a number of solutions to this, including:
+* In memory database for test.
+* Containerized Postgres database that runs during tests, set up by Terraform script (not yet written).
+* Set up a public, read only Postgres database that any tests can use (not sure if this is feasible).
 
 # Purpose
 The primary purpose of this project is to learn and demonstrate new features in Java from version 8 on.
