@@ -17,7 +17,7 @@ public class TestFAJ {
 	@Test
 	public void testAlternateForms() {
 		FAJ faj = new FAJ();
-		String[] inputArr = {"abcd", "efgh", "", null};
+		String[] inputArr = getInputArray();
 
 		for (String input : inputArr) {	
 			Assert.assertEquals(faj.isNotNull.test(input), faj.isNotNullV1.test(input));
@@ -29,12 +29,10 @@ public class TestFAJ {
 	@Test
 	public void testFuncIsNotNull() {
 		FAJ faj = new FAJ();
-		String[] inputArr = {"abcd", "efgh", "", null};
+		String[] inputArr = getInputArray();
 
 		for (String input : inputArr) {	
-		Assert.assertEquals(faj.isNotNull.test(input), faj.funcIsNotNull.apply(input));
-		Assert.assertEquals(faj.isNotNull.test(input), faj.funcIsNotNull.apply(input));
-		Assert.assertEquals(faj.isNotNull.test(input), faj.funcIsNotNull.apply(input));
+			Assert.assertEquals(faj.isNotNull.test(input), faj.funcIsNotNull.apply(input));
 		}
 	}
 
@@ -42,7 +40,7 @@ public class TestFAJ {
 	public void testConciselyPassingFunctions() {
 		FAJ faj = new FAJ();
 		List<Predicate<String>> plist = List.of(faj.isNotNullV1, faj.isNotNullV2, faj.isNotNullV3);
-		String[] inputArr = {"abcd", "efgh", "", null};
+		String[] inputArr = getInputArray();
 
 		for (String input : inputArr) {		
 			for (Predicate<String> p : plist) {
@@ -50,4 +48,29 @@ public class TestFAJ {
 			}
 		}
 	}
+	
+	@Test
+	public void testImplementingInterface() {
+		FAJ faj = new FAJ();
+		String[] inputArr = getInputArray();
+		for (String input : inputArr) {		
+			Assert.assertEquals(faj.isNotNull.test(input), faj.nni.isNotNull(input));
+		}	
+	}
+	
+	/** Return an array with a variety of test inputs.
+	 *  There's no reason for each test to use different inputs,
+	 *  so if the range of inputs needs to be expanded, it can
+	 *  be done in one place.
+	 *  
+	 * @return The array of test inputs.
+	 */
+	private String[] getInputArray() {
+		String[] inputArr = {"abcd", "efgh", "", null};
+		return inputArr;
+	}
 }
+
+
+
+

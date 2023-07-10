@@ -16,4 +16,8 @@ public class FAJ {
 	
 	// Convert the Predicate to a Function.
 	public Function<String, Boolean> funcIsNotNull = input -> isNotNull.test(input);
+	
+	/** Example of a lambda implementing an interface.*/
+	public NotNullInterface nni = input -> input != null;
 }
+
