@@ -3,6 +3,7 @@
  */
 package org.moyoman.modernJava.fp;
 
+import java.util.Collection;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -19,5 +20,17 @@ public class FAJ {
 	
 	/** Example of a lambda implementing an interface.*/
 	public NotNullInterface nni = input -> input != null;
+	
+	public int findRange(Collection<Integer> collection) {
+		return 0;
+	}
+	
+	public int findMostFrequent(Collection<Integer> collection) {
+		return 0;
+	}
+	
+	public int findMedian(Collection<Integer> collection) {
+		return 0;		
+	}
 }
 
