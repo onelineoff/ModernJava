@@ -7,7 +7,7 @@ Example code to demonstrate various features of Java 8 and above.
 It also contains my solution to various coding problems that I was given on assorted job interviews.
 
 # Requirements
-1. Java 14 or later.
+1. Java 17 or later.
 2. Apache Maven, version 3.6.0 or later.
 
 # Steps to build and run Spring Boot application
@@ -17,6 +17,16 @@ It also contains my solution to various coding problems that I was given on asso
 4. REST calls are at localhost:8888, or whatever port is set in application.properties.
 5. Type: mvn package to create the executable jar file.
 6. For the openapi3 (swagger) interface, in the browser, go to: http://localhost:8888/swagger-ui/index.html
+
+# Authentication/Authorization
+The /vi/mockEndpoints calls illustrate the security scheme, using JWT tokens.
+The remaining calls are open to make it simpler to use.
+
+# Caveat
+As of right now, the application won't start unless there is a Postgres database set up as in the application.properties file.  Going forward, there are a number of solutions to this, including:
+* In memory database for test.
+* Containerized Postgres database that runs during tests, set up by Terraform script (not yet written).
+* Set up a public, read only Postgres database that any tests can use (not sure if this is feasible).
 
 # Purpose
 The primary purpose of this project is to learn and demonstrate new features in Java from version 8 on.

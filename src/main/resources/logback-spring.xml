@@ -5,10 +5,11 @@
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
       <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
     </appender>
-    <root level="WARN">
+    <root level="INFO">
       <appender-ref ref="STDOUT"/>
     </root>
-    <logger level="WARN" name="org.springframework"/>
+    <logger level="TRACE" name="org.moyoman.modernJava"/>
+    <logger level="INFO" name="org.springframework"/>
     <logger level="ERROR" name="org.hibernate"/>
   </springProfile>
 </configuration>
