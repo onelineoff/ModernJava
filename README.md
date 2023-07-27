@@ -18,6 +18,10 @@ It also contains my solution to various coding problems that I was given on asso
 5. Type: mvn package to create the executable jar file.
 6. For the openapi3 (swagger) interface, in the browser, go to: http://localhost:8888/swagger-ui/index.html
 
+# Authentication/Authorization
+The /vi/mockEndpoints calls illustrate the security scheme, using JWT tokens.
+The remaining calls are open to make it simpler to use.
+
 # Caveat
 As of right now, the application won't start unless there is a Postgres database set up as in the application.properties file.  Going forward, there are a number of solutions to this, including:
 * In memory database for test.

@@ -58,6 +58,9 @@ public class AuthorizationService {
 	static {
 		openUrlSet.add("/v1/auth/"); // The login and refresh methods.
 		openUrlSet.add("/v3/api-docs"); // Needed to create the swagger3 (OpenAPI) ui page.
+		openUrlSet.add("/numeric"); // Don't need auth, make it simple to call.
+		openUrlSet.add("/prime"); // Don't need auth, make it simple to call.
+		
 		validUrlSet.add("/v1/mockEndpoints/");
 		// TODO Add the "real" endpoints to the validUrlSet.
 	}
