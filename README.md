@@ -9,6 +9,8 @@ It also contains my solution to various coding problems that I was given on asso
 # Requirements
 1. Java 17 or later.
 2. Apache Maven, version 3.6.0 or later.
+3. A Postgres database needs to be running.  Edit the application.properties to have the correct parameters.
+4. Execute the schema/create.sql file to create the appropriate database tables and users.  If you change the database password, you'll have to generate a new encrypted password, so it's simplest to use the existing user and password.
 
 # Steps to build and run Spring Boot application
 1. cd to the directory with this README file.
