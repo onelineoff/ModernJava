@@ -1,5 +1,6 @@
 package org.moyoman.modernJava.fp;
 
+import java.io.File;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -68,6 +69,20 @@ public class TestFAJ {
 	private String[] getInputArray() {
 		String[] inputArr = {"abcd", "efgh", "", null};
 		return inputArr;
+	}
+	
+	@Test
+	public void findSuffix() {
+		File dir = new File(".");
+		File[] files = dir.listFiles(f -> f.getName().endsWith("tif.jpg"));
+		for (File f : files) {
+			String name = f.getName();
+			String newName = name.replace(".tif.jpg", ".jpg");
+			File newFile = new File(newName);
+			f.renameTo(newFile);
+			System.out.println("Rename " + name + " to " + newName);
+		}
+		
 	}
 }
 

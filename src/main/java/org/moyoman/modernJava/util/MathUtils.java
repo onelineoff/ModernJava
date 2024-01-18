@@ -34,6 +34,18 @@ public class MathUtils {
 		else {
 			return result.get().longValue();
 		}
-			
+	}
+	
+	public static int factorial(int input) {
+		if (input > 12) {
+			throw new IllegalArgumentException("Can't fit factorial in an int for i > 12");
+		}
+		
+		int factorial =1;
+		for (int i=2; i<= input; i++) {
+			factorial *= i;
+		}
+		
+		return factorial;
 	}
 }

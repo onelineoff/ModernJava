@@ -37,4 +37,24 @@ public class MathUtilTest {
 		xor = MathUtils.xor(sortedSet);
 		Assert.assertEquals(192l, xor);
 	}
+	
+	@Test
+	public void testFactorial() {
+		Assert.assertEquals(6, MathUtils.factorial(3));
+		Assert.assertEquals(24, MathUtils.factorial(4));
+		Assert.assertEquals(120, MathUtils.factorial(5));
+		Assert.assertEquals(720, MathUtils.factorial(6));
+		Assert.assertEquals(5040, MathUtils.factorial(7));
+		Assert.assertEquals(40320, MathUtils.factorial(8));
+		Assert.assertEquals(362880, MathUtils.factorial(9));
+		Assert.assertEquals(3628800, MathUtils.factorial(10));
+		Assert.assertEquals(39916800, MathUtils.factorial(11));
+		Assert.assertEquals(479001600, MathUtils.factorial(12));
+		try {
+			Assert.assertEquals(3, MathUtils.factorial(13));
+			Assert.fail("13 too large to put factorial in an int");
+		} catch (IllegalArgumentException e) {
+			// Expected result
+		}
+	}
 }
