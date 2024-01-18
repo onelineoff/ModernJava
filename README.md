@@ -24,11 +24,10 @@ It also contains my solution to various coding problems that I was given on asso
 The /vi/mockEndpoints calls illustrate the security scheme, using JWT tokens.
 The remaining calls are open to make it simpler to use.
 
-# Caveat
-As of right now, the application won't start unless there is a Postgres database set up as in the application.properties file.  Going forward, there are a number of solutions to this, including:
-* In memory database for test.
-* Containerized Postgres database that runs during tests, set up by Terraform script (not yet written).
-* Set up a public, read only Postgres database that any tests can use (not sure if this is feasible).
+# Database
+Support was added for Postgres set up with a certain schema and user/password.
+The relevant parts are commented out in the pom file.
+Once I have the test part automated, I will uncomment that.
 
 # Purpose
 The primary purpose of this project is to learn and demonstrate new features in Java from version 8 on.

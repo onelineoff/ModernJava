@@ -1,6 +1,9 @@
 package org.moyoman.modernJava.util;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.stereotype.Component;
@@ -93,5 +96,61 @@ public class ArrayUtils {
 		}
 		
 		return arr;
+	}
+	
+	/** Return a list of all permutations of the input array as an array.
+	
+	 * @param arr The input array
+	 * @return A list with each element an array containing one permutation of the input array.
+	 */
+	public <T> List<T[]> getPermutations(T[] arr) {
+		List<T[]> retList = new ArrayList<>();
+		getPermutations(arr.length, arr, retList);
+		
+		
+		return retList;
+	}
+	
+	/** Recursive method for generating all permutations of an array's elements.
+	 *  This is an implementation of Heap's Algorithm.
+	 *  @see https://en.wikipedia.org/wiki/Heap%27s_algorithm
+	 *  
+	 * @param <T> The type of the array element
+	 * @param val A parameter adjusted during the recursive calls
+	 * @param arr The array of elements, adjusted in place.
+	 * @param retList A list of all the arrays generated so far.
+	 */
+	protected <T> void getPermutations(int val, T[] arr, List<T[]> retList) {
+		
+		if (val == 1) {
+			retList.add(Arrays.copyOf(arr, arr.length));
+		}
+		else {
+			getPermutations(val - 1, arr, retList);
+			for (int i=0; i<val-1; i++) {
+				if (val % 2 == 0) {
+					T temp = arr[i];
+					arr[i] = arr[val-1];
+					arr[val-1] = temp;
+				}
+				else {
+					T temp = arr[0];
+					arr[0] = arr[val-1];
+					arr[val-1] = temp;
+				}
+				getPermutations(val-1, arr, retList);
+			}
+		}
+	}
+	
+	protected <T> String joinElements(T[] arr) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(arr[0]);
+		for (int i=1; i<arr.length; i++) {
+			sb.append(",");
+			sb.append(arr[i]);
+		}
+		
+		return sb.toString();
 	}
 }

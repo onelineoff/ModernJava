@@ -31,6 +31,6 @@ public class FAJ {
 	
 	public int findMedian(Collection<Integer> collection) {
 		return 0;		
-	}
+	} 
 }
 
