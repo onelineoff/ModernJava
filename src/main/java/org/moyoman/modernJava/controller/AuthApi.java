@@ -4,12 +4,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 import org.moyoman.modernJava.auth.JwtTokenGenerator;
+import org.moyoman.modernJava.auth.PasswordValidityEnum;
 import org.moyoman.modernJava.domain.LoginRequest;
 import org.moyoman.modernJava.domain.InternalToken;
 import org.moyoman.modernJava.service.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,7 +50,7 @@ public class AuthApi {
 		return ResponseEntity.ok("Java Generic Cloud");
 	}
 	
-	@Operation(summary = "User name should contain modify or admin for role, otherwise it will be read only, use hard coded password 'Very,very secret!'")
+	@Operation(summary = "User name should contain modify or admin for role, otherwise it will be read only, use hard coded password 'Very, very secret!'")
 	@PostMapping(value="login", consumes="application/json", produces="application/text")
 	public ResponseEntity<String> getJwtToken(HttpServletRequest request, @RequestBody LoginRequest loginRequest) {
 		try {
@@ -61,6 +63,19 @@ public class AuthApi {
 		}
 	}
 	
+	@PostMapping(value="validatePassword", consumes="application/text", produces="application/text")
+	@Operation(summary = "Validate that the password meets the required standards for passwords.")
+	public ResponseEntity<String> validatePassword(HttpServletRequest request, @RequestBody String password) {
+		LOGGER.info("Called validatePassword");
+		PasswordValidityEnum status = loginService.validatePassword(password);
+		if (status == PasswordValidityEnum.OK) {
+			return ResponseEntity.ok("Password meets standard requirements.");
+		}
+		else {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(status.toString());
+		}
+		
+	}
 	@Operation(summary = "A new jwt token is generated from the old, valid one with a new expire time, but otherwise unchanged.")
 	@PostMapping(value="refresh", produces="application/text")
 	public ResponseEntity<String> refreshJwtToken(HttpServletRequest request) {
