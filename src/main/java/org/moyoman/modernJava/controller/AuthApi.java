@@ -8,6 +8,7 @@ import org.moyoman.modernJava.auth.PasswordValidityEnum;
 import org.moyoman.modernJava.domain.LoginRequest;
 import org.moyoman.modernJava.domain.InternalToken;
 import org.moyoman.modernJava.service.LoginService;
+import org.moyoman.modernJava.service.PasswordValidationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,9 @@ public class AuthApi {
 	private LoginService loginService;
 	
 	@Autowired
+	private PasswordValidationService passwordValidationService;
+	
+	@Autowired
 	private JwtTokenGenerator jwtTokenGenerator;
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(AuthApi.class);
@@ -67,7 +71,7 @@ public class AuthApi {
 	@Operation(summary = "Validate that the password meets the required standards for passwords.")
 	public ResponseEntity<String> validatePassword(HttpServletRequest request, @RequestBody String password) {
 		LOGGER.info("Called validatePassword");
-		PasswordValidityEnum status = loginService.validatePassword(password);
+		PasswordValidityEnum status = passwordValidationService.validatePassword(password);
 		if (status == PasswordValidityEnum.OK) {
 			return ResponseEntity.ok("Password meets standard requirements.");
 		}
