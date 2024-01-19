@@ -86,6 +86,7 @@ public class SimplePasswordValidationService implements PasswordValidationServic
 	 * @return true if there is a repeating sequence, or false.
 	 */
 	protected boolean containsRepeatingSequence(String password) {
+		// TODO Look into regex capturing groups, use that if possible
 		boolean repeatingSequenceFlag = false;
 		for (int sequenceLength = 1; sequenceLength <= password.length() / 2; sequenceLength++) {
 			int lastToCheck = password.length() - (2 * sequenceLength);
