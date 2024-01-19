@@ -107,7 +107,7 @@ public class LoginService {
 	protected boolean validCharacters(String password) {
 		boolean validCharacters = true;
 		
-		for (int i = 0; i<password.length(); i++) {
+		for (int i = 0; i < password.length(); i++) {
 			char c = password.charAt(i);
 			if (!Character.isDigit(c) && !Character.isLowerCase(c)) {
 				validCharacters = false;
@@ -141,7 +141,7 @@ public class LoginService {
 		boolean foundLowerCase = false;
 		boolean foundDigit = false;
 		
-		for (int i = 0; i<password.length(); i++) {
+		for (int i = 0; i < password.length(); i++) {
 			char c = password.charAt(i);
 			if (Character.isLowerCase(c)) {
 				foundLowerCase = true;

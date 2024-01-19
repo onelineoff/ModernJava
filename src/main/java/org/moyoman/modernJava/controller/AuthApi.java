@@ -67,7 +67,6 @@ public class AuthApi {
 	@Operation(summary = "Validate that the password meets the required standards for passwords.")
 	public ResponseEntity<String> validatePassword(HttpServletRequest request, @RequestBody String password) {
 		LOGGER.info("Called validatePassword");
-		LOGGER.info("password is {}", password);
 		PasswordValidityEnum status = loginService.validatePassword(password);
 		if (status == PasswordValidityEnum.OK) {
 			return ResponseEntity.ok("Password meets standard requirements.");
