@@ -1,6 +1,5 @@
 package org.moyoman.modernJava.service;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
@@ -33,7 +32,6 @@ public class RegexPasswordValidationService implements PasswordValidationService
 		
 	}
 	
-	// TODO find() instead of matches() ?
 	/** Verify that all characters in the password are the right type.
 	 * 
 	 * @param password The password to be tested

@@ -43,7 +43,6 @@ public class AuthApi {
 	private LoginService loginService;
 	
 	@Autowired
-	@Qualifier("Regex")
 	private PasswordValidationService passwordValidationService;
 	
 	@Autowired
