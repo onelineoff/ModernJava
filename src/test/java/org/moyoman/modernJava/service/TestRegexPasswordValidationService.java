@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class TestSimplePasswordValidationService {
+public class TestRegexPasswordValidationService {
 
 	@Autowired
-	private SimplePasswordValidationService simplePasswordValidationService;
+	private RegexPasswordValidationService simplePasswordValidationService;
 	
 	@Test
 	public void testPasswordLength() {
@@ -40,7 +40,9 @@ public class TestSimplePasswordValidationService {
 	
 	@Test
 	public void testPasswordValidCharacters() {
-		String password = "abcd1234A";
+		String password = null;
+		simplePasswordValidationService.validCharacters(password);
+		password = "abcd1234A";
 		Assert.assertFalse(simplePasswordValidationService.validCharacters(password));
 		password = "abcd1234*";
 		Assert.assertFalse(simplePasswordValidationService.validCharacters(password));
