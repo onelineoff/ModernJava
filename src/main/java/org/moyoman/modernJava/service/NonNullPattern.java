@@ -18,4 +18,13 @@ class NonNullPattern {
 			return regex.matcher(password).matches();
 		}
 	}
+	
+	protected static boolean find(Pattern regex, String password) {
+		if (password == null) {
+			return false;
+		}
+		else {
+			return regex.matcher(password).find();
+		}
+	}
 }

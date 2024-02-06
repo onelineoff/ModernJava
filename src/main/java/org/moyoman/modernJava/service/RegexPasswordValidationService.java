@@ -12,6 +12,7 @@ public class RegexPasswordValidationService implements PasswordValidationService
 	private static Pattern validPattern;
 	private static Pattern lowerCasePattern;
 	private static Pattern digitPattern;
+	private static Pattern repeatingPattern;
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(RegexPasswordValidationService.class);
 	
@@ -23,13 +24,16 @@ public class RegexPasswordValidationService implements PasswordValidationService
 		validPattern = Pattern.compile(regex);
 		
 		// At least one lower case letter.
-		lowerCasePattern = Pattern.compile(".*?[a-z]+.*?");
+		lowerCasePattern = Pattern.compile("[a-z]+");
 		
 		// At least one digit.
-		digitPattern = Pattern.compile(".*?[0-9]+.*?");
+		digitPattern = Pattern.compile("[0-9]+");
+		
+		repeatingPattern = Pattern.compile("([a-z0-9]+)\\1");
 		
 	}
 	
+	// TODO find() instead of matches() ?
 	/** Verify that all characters in the password are the right type.
 	 * 
 	 * @param password The password to be tested
@@ -55,8 +59,8 @@ public class RegexPasswordValidationService implements PasswordValidationService
 	 * @return true if the required variety of characters are present, or false.
 	 */
 	public boolean validateVariety(String password) {
-		return NonNullPattern.isMatch(lowerCasePattern, password) && 
-			NonNullPattern.isMatch(digitPattern, password);
+		return NonNullPattern.find(lowerCasePattern, password) && 
+			NonNullPattern.find(digitPattern, password);
 	}
 	
 	/** Determine if one or more characters immediately repeats itself.
@@ -65,24 +69,6 @@ public class RegexPasswordValidationService implements PasswordValidationService
 	 * @return true if there is a repeating sequence, or false.
 	 */
 	public boolean containsRepeatingSequence(String password) {
-		if (password == null) {
-			return false;
-		}
-		
-		// TODO Look into regex capturing groups, use that if possible
-		boolean repeatingSequenceFlag = false;
-		for (int sequenceLength = 1; sequenceLength <= password.length() / 2; sequenceLength++) {
-			int lastToCheck = password.length() - (2 * sequenceLength);
-			for (int index = 0; index <= lastToCheck; index++) {
-				String firstSubstring = password.substring(index, index + sequenceLength);
-				String secondSubstring = password.substring(
-						index + sequenceLength, index + (2 * sequenceLength));
-				if (firstSubstring.equals(secondSubstring)) {
-					repeatingSequenceFlag = true;
-				}
-			}
-		}
-		
-		return repeatingSequenceFlag;
+		return NonNullPattern.find(repeatingPattern, password);
 	}
 }
