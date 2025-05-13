@@ -112,8 +112,45 @@ Various minor changes.
 * Records for immutable classes.
 * Sealed classes.
 
-# Java 16
-* 
+# Java 21 
+* Virtual Threads
+* Sequenced Collections
+* String Templates
+* Pattern Matching
+* Native and Memory API
+
+## Virtual Threads
+https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html#GUID-DC4306FC-D6C1-4BCC-AECE-48C32C1A8DAA
+
+The primary purpose of these is to support I/O bound operations.  They are not meant for cpu intensive operations.
+They can be created like this:
+* Thread.ofVirtual()
+* Executors.newVirtualThreadPerTaskExecutor()
+
+Tool support is provided by Java Flight Recorder, as well as the jcmd command.
+
+## Sequenced Collections
+Implementing classes such as ArrayList and TreeSet support these operations:
+* addFirst()
+* addLast()
+* getFirst()
+* getLast()
+* removeFirst()
+* removeLast()
+* reversed()
+
+## String Templates
+There are various templates that can be used to format strings with parameters.
+This is a preview feature, so should probably be avoided for now.
+## Pattern Matching
+### Record Patterns
+Nothing too exciting, this allows you to do less casting in a type safe way.
+### Switch Expressions
+This simplifies switch statements when using derived classes of the input parameter.
+You can have a switch based on the object type, rather than using instanceof
+
+## Native and Memory API
+This is a simpler and more efficient way of dealing with native applications and memory than JNI.
 
 ## TODO
 I could put a lot more time into this project, but it serves my purposes for now,
@@ -161,3 +198,7 @@ A move consists of either adding or removing an entry to the array.  The problem
 
 ## Documentation
 The docs directory contains a number of markdown files which document various more recent java features.
+
+## Deployment
+The src/main/deployment directory contains the Ansible/Terraform files for automated deployment.
+A separate README file in that directory will explain it in more detail.
